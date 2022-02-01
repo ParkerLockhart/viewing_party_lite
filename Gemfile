@@ -46,12 +46,13 @@ group :development do
   gem 'rubocop-rails'
 end
 
-group :test do 
+group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
-end 
+  gem 'shoulda-matchers'
+end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
