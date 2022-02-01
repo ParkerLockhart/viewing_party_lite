@@ -1,0 +1,12 @@
+<h1>Viewing Party</h1>
+  <div>
+    <button><%= link_to 'Create New User', '/register' %></button><br>
+  </div>
+
+  <div>
+    Existing Users:<br>
+    <% @users.each do |user| %>
+      <%= link_to "#{user.email}", "/users/#{user.id}" %><br>
+    <% end %>
+
+  </div>
