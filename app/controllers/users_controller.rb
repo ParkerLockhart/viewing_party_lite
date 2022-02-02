@@ -37,8 +37,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     if params[:q] == "top rated"
       @movies = facade.top_movies
+      @heading = "Top Rated Movies"
     else
       @movies = facade.movie_results(params[:q])
+      @heading = "Movie results for: #{params[:q]}"
     end
   end
 
