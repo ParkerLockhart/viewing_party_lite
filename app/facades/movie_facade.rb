@@ -29,5 +29,5 @@ class MovieFacade
     service.top_rated.map do |data|
       TopRated.new(data)
     end
-  end 
+  end
 end
