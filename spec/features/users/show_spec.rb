@@ -13,7 +13,7 @@ RSpec.describe 'user dashboard' do
   end
 
   it 'has a button to discover movies that redirects to a discover page associated with that user ' do
-    expect(page).to have_link("Discover Movies")
+    expect(page).to have_button("Discover Movies")
 
     click_button "Discover Movies"
 
