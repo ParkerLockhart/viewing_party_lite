@@ -257,7 +257,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   factory_bot_rails
-  faraday
+  faraday (>= 1.8.0)
   figaro
   jbuilder (~> 2.5)
   launchy
