@@ -1,0 +1,7 @@
+<button><%= link_to "Discover Page", "/users/#{@user.id}/discover" %></button><br>
+<% @movies.each do |movie| %>
+  <div id="movie-id-<%= movie.movie_id %>">
+    Title: <%= movie.title %>
+    Vote average: <%= movie.vote_average %><br>
+  </div>
+<% end %>
