@@ -1,3 +1,5 @@
+
+<h3><%= @heading %></h3>
 <button><%= link_to "Discover Page", "/users/#{@user.id}/discover" %></button><br>
 <% @movies.each do |movie| %>
   <div id="movie-id-<%= movie.movie_id %>">

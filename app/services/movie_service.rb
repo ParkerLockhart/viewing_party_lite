@@ -3,7 +3,7 @@ require 'json'
 class MovieService
 
   def movie_search(query)
-    get_url("/?api_key=#{ENV['movie_api_key']}&query=#{query}&language=en-US")
+    get_url("/search/movie?api_key=#{ENV['movie_api_key']}&query=#{query}&language=en-US")[:results]
   end
 
   def movie_cast(movie_id)
@@ -25,5 +25,6 @@ class MovieService
   def get_url(url)
     response = Faraday.get("https://api.themoviedb.org/3#{url}")
     parsed = JSON.parse(response.body, symbolize_names: true)
+
   end
 end

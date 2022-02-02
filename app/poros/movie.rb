@@ -4,7 +4,8 @@ class Movie
               :vote_average,
               :overview,
               :genres,
-              :runtime
+              :runtime,
+              :poster_path
 
   def initialize(data)
     @id = data[:id]
@@ -13,11 +14,12 @@ class Movie
     @overview = data[:overview]
     @genres = data[:genres]
     @runtime = data[:runtime]
+    @poster_path = data[:poster_path]
   end
 
   def genre_names
     @genres.map do |genre|
       genre[:name]
     end
-  end 
+  end
 end
