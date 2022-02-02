@@ -3,6 +3,7 @@ require 'json'
 class MovieService
 
   def movie_search(query)
+    query.gsub!(/ /, "%20")
     get_url("/search/movie?api_key=#{ENV['movie_api_key']}&query=#{query}&language=en-US")[:results]
   end
 
