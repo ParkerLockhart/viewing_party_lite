@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create] do
     get '/discover', to: 'users#discover'
     post '/discover', to: 'users#search'
-    
   end
+
   get '/register', to: 'users#new'
 
 end
