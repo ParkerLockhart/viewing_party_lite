@@ -32,6 +32,16 @@ class UsersController < ApplicationController
     @results = data['results']
   end
 
+  def movies
+    facade = MovieFacade.new
+    @user = User.find(params[:user_id])
+    if params[:q] == "top rated"
+      @movies = facade.top_movies
+    else
+      @movies = facade.movie_results(params[:q])
+    end
+  end
+
 private
 
   def user_params

@@ -24,4 +24,10 @@ class MovieFacade
       Review.new(data)
     end
   end
+
+  def top_movies
+    service.top_rated.map do |data|
+      TopRated.new(data)
+    end
+  end 
 end
