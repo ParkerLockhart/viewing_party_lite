@@ -3,7 +3,8 @@ require 'json'
 class MovieService
 
   def movie_search(query)
-    get_url("/?api_key=#{ENV['movie_api_key']}&query=#{query}&language=en-US")
+    query.gsub!(/ /, "%20")
+    get_url("/search/movie?api_key=#{ENV['movie_api_key']}&query=#{query}&language=en-US")
   end
 
   def movie_cast(movie_id)
