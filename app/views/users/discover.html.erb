@@ -2,7 +2,7 @@
 <%= button_to "Discover Top Rated Movies", "/users/#{@user.id}/movies?q=top%20rated"%>
 
 <%= form_with url: "/users/#{@user.id}/movies", method: :post, local: true do |f|%>
-  <%= f.label :q, 'Search For Movie Title' %>
+  <%= f.label :q, 'Search For Movie By Title' %>
   <%= f.text_field :q %>
   <%= f.submit 'Search' %>
 <% end %>
