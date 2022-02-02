@@ -15,6 +15,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def discover
+    @user = User.find(params[:user_id])
+
+  end
+
+  def search
+    user = User.find(params[:user_id])
+
+    query = params[:search]
+    query.gsub(/ /, "%20")
+
+    url = 'https://api.themoviedb.org/3/search/movie'
+    response = Faraday.get(url + "?api_key=#{ENV['movie_api_key']}&query=#{query}")
+    data = JSON.parse(response.body, symbolize_name: true)
+    @results = data['results']
+  end
+
 private
 
   def user_params

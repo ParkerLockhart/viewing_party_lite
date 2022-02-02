@@ -1,0 +1,8 @@
+<h1>Movies</h1>
+
+<% @results.each_with_index do |movie_hash, index| %>
+  <div class=<%= "movie_#{index}" %>>
+    <p><%= "Title: #{movie_hash['title']}" %></p>
+    <p><%= "Vote Average: #{movie_hash['vote_average']}" %></p>
+  </div>
+<% end %>

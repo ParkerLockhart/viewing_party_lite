@@ -1,0 +1,7 @@
+<h1>Search for Movie</h1>
+
+<%= form_with url: "/users/#{@user.id}/discover", method: :post, local: true do |f|%>
+  <%= f.label 'search' %>
+  <%= f.text_field 'search' %>
+  <%= f.submit 'Search' %>
+<% end %>
