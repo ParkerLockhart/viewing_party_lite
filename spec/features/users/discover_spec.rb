@@ -11,7 +11,17 @@ RSpec.describe 'the user discover page' do
       fill_in :q, with: 'Fight Club'
       click_button 'Search'
 
-      expect(current_path).to eq("/users/#{user.id}/movies?q=Fight%20Club")
+      expect(current_path).to eq("/users/#{user.id}/movies")
+    end
+  end
+
+  it "has a button to search for top rated movies that redirects you to a results page" do
+    visit "/users/#{user.id}/discover"
+
+    VCR.use_cassette('top_rated_search') do
+      click_button 'Discover Top Rated Movies'
+
+      expect(current_path).to eq("/users/#{user.id}/movies")
     end
   end
 end
