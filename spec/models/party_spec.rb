@@ -61,5 +61,31 @@ RSpec.describe Party, type: :model do
         end
       end
     end
+
+    describe '#host' do
+      it "returns the host of the party" do
+        host = create(:user, name: 'Jeff')
+        viewer_1 = create(:user, name: 'Abby')
+        viewer_2 = create(:user, name: 'Bob')
+        viewer_3 = create(:user, name: 'Charlie')
+        viewers = [viewer_1, viewer_2, viewer_3]
+        party = create(:party_with_viewers, host: host, viewers: viewers)
+
+        expect(party.host).to eq(host)
+      end
+    end
+
+    describe '#viewers' do
+      it "returns all viewers who are not the host of the party" do
+        host = create(:user, name: 'Jeff')
+        viewer_1 = create(:user, name: 'Abby')
+        viewer_2 = create(:user, name: 'Bob')
+        viewer_3 = create(:user, name: 'Charlie')
+        viewers = [viewer_1, viewer_2, viewer_3]
+        party = create(:party_with_viewers, host: host, viewers: viewers)
+
+        expect(party.host).to eq(viewers)
+      end
+    end
   end
 end
