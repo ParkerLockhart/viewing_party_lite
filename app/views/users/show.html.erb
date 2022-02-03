@@ -8,7 +8,7 @@
     <div class=<%= "viewing_party_#{party.movie_id}" %>>
       <img src= <%= party.movie_poster %> alt="">
 
-      <p><%= link_to "Title: #{party.movie.title}", "/users/#{@user.id}/movies/#{party.movie_id}" %></p>
+      <p><%= link_to "Title: #{party.movie_title}", "/users/#{@user.id}/movies/#{party.movie_id}" %></p>
     </div>
   <% end %>
 </div>
