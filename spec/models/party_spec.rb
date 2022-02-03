@@ -84,7 +84,7 @@ RSpec.describe Party, type: :model do
         viewers = [viewer_1, viewer_2, viewer_3]
         party = create(:party_with_viewers, host: host, viewers: viewers)
 
-        expect(party.host).to eq(viewers)
+        expect(party.viewers).to eq(viewers)
       end
     end
   end

@@ -22,4 +22,12 @@ class Party < ApplicationRecord
   def movie_time
     start_time.strftime("%l:%M %p").lstrip()
   end
+
+  def host
+    users.where(party_users: {host: true})[0]
+  end
+
+  def viewers
+    users.where(party_users: {host: false})
+  end
 end
