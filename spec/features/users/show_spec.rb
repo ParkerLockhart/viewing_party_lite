@@ -21,7 +21,7 @@ RSpec.describe 'user dashboard' do
   describe 'viewing party sections' do
 
     it "has a movie image" do
-      VCR.use_cassette('user_dune_search') do
+      VCR.use_cassette('create_movie_from_search_dune') do
         facade = MovieFacade.new
         movie_id = facade.movie_result('dune')[0].id
         movie = facace.movie_info(movie_id)
@@ -29,12 +29,12 @@ RSpec.describe 'user dashboard' do
 
         visit user_path(user_1)
 
-        expect(page).to have_css("img[src=https://api.themoviedb.org/d5NXSklXo0qyIYkgV94XAgMIckC.jpg]")
+        expect(page).to have_css("img[src=https://image.tmdb.org/t/p/original/d5NXSklXo0qyIYkgV94XAgMIckC.jpg]")
       end
     end
 
     it "has a title that links to the movie show page" do
-      VCR.use_cassette('user_dune_search') do
+      VCR.use_cassette('create_movie_from_search_dune') do
         facade = MovieFacade.new
         movie_id = facade.movie_result('dune')[0].id
         movie = facace.movie_info(movie_id)
