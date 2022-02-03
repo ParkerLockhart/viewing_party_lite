@@ -2,4 +2,12 @@
 
 <%= button_to 'Discover Movies', "/users/#{@user.id}/discover", method: :get, local: true %>
 <hr>
-<h4>Viewing Parties</h4>
+<div class="viewing_parties">
+  <h4>Viewing Parties</h4>
+  <% @user.parties.each do |party| %>
+    <div class=<%= "viewing_party_#{party.movie_id}" %>>
+      <img src= <%= party.movie_poster %> alt="">
+      <p><%= link_to "Title: #{party.movie_title}", "/users/#{@user.id}/movies/#{party.movie_id}" %></p>
+    </div>
+  <% end %>
+</div>
