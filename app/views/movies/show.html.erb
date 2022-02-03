@@ -1,0 +1,19 @@
+<h3><%= @details.title %></h3>
+<button><%= link_to "Discover Page", "/users/#{@user.id}/discover" %></button><br>
+<button><%= link_to "Create Viewing Party for #{@details.title}", "/users/#{@user.id}/movies/#{@details.id}/viewing-party/new" %></button><br>
+Vote Average: <%= @details.vote_average %><br>
+Runtime: <%= "#{@details.runtime/60}hr" %> <%= "#{@details.runtime % 60} min" %> <br>
+Genre(s):
+<%= @details.genre_names.join(", ") %>
+<hr>
+Summary: <%= @details.overview %><br>
+Cast:<br>
+<% @cast.first(10).each do |member| %>
+  <%= member.name %> as <%= member.character %><br>
+<% end %>
+<hr>
+<%= @reviews.count %> Reviews <br>
+<% @reviews.each do |review| %>
+  Author: <%= review.author %><br>
+  <%= review.content %><br>
+<% end %>
