@@ -27,6 +27,10 @@ class Party < ApplicationRecord
     users.where(party_users: {host: true})[0]
   end
 
+  def host_name
+    host.name    
+  end
+
   def viewers
     users.where(party_users: {host: false})
   end

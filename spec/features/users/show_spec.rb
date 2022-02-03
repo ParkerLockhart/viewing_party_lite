@@ -86,6 +86,7 @@ RSpec.describe 'user dashboard' do
         party = create(:party_with_viewers, host: user_1, viewers: viewers, movie_id: movie_id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
 
         visit user_path(user_1)
+        
         within "div.movie_#{movie_id}_viewers" do
           expect(page).to have_content("Abby")
           expect(page).to have_content("Bob")

@@ -11,6 +11,14 @@
       <p><%= link_to "Title: #{party.movie_title}", "/users/#{@user.id}/movies/#{party.movie_id}" %></p>
       <p><%= "Date: #{party.movie_date}" %></p>
       <p><%= "Time: #{party.movie_time}" %></p>
+      <p><%= "Host: #{party.host_name}" %></p>
+      <div class=<%= "movie_#{party.movie_id}_viewers" %>>
+        <p><%= "Viewers:" %></p>
+        <% party.viewers.each do |viewer| %>
+          <p><%= viewer.name %></p>
+        <% end %>
+      </div>
+
     </div>
   <% end %>
 </div>
