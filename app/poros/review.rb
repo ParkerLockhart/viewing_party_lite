@@ -1,9 +1,8 @@
 class Review
-  attr_reader :movie_id, :author, :content
+  attr_reader :author, :content
 
   def initialize(data)
-    @movie_id = data[:id]
-    @author = data[:results][:author]
-    @content = data[:results][:content]
+    @author = data[:author]
+    @content = data[:content]
   end
-end 
+end
