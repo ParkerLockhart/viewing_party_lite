@@ -12,6 +12,6 @@ class Party < ApplicationRecord
   end
 
   def movie_poster
-    movie.poster
+    movie.poster_path
   end
 end

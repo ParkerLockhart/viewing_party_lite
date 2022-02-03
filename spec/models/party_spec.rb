@@ -7,16 +7,17 @@ RSpec.describe Party, type: :model do
   end
 
   describe 'instance methods' do
+    let!(:user_1) { create(:user) }
 
     describe '#movie' do
       it "returns the movie associated with the party's movie_id" do
         VCR.use_cassette('create_movie_from_search_dune') do
           facade = MovieFacade.new
-          movie_id = facade.movie_result('dune')[0].id
-          movie = facace.movie_info(movie_id)
+          movie_id = facade.movie_results('dune')[0].movie_id
+          movie = facade.movie_info(movie_id)
           party = create(:party, host: user_1, movie_id: movie_id)
 
-          expect(party.movie).to eq(movie)
+          expect(party.movie.id).to eq(movie.id)
         end
       end
     end
@@ -25,8 +26,8 @@ RSpec.describe Party, type: :model do
       it "returns the movie associated with the party's movie_id" do
         VCR.use_cassette('create_movie_from_search_dune') do
           facade = MovieFacade.new
-          movie_id = facade.movie_result('dune')[0].id
-          movie = facace.movie_info(movie_id)
+          movie_id = facade.movie_results('dune')[0].movie_id
+          movie = facade.movie_info(movie_id)
           party = create(:party, host: user_1, movie_id: movie_id)
 
           expect(party.movie_title).to eq("Dune")
@@ -38,8 +39,8 @@ RSpec.describe Party, type: :model do
       it "returns the movie associated with the party's movie_id" do
         VCR.use_cassette('create_movie_from_search_dune') do
           facade = MovieFacade.new
-          movie_id = facade.movie_result('dune')[0].id
-          movie = facace.movie_info(movie_id)
+          movie_id = facade.movie_results('dune')[0].movie_id
+          movie = facade.movie_info(movie_id)
           party = create(:party, host: user_1, movie_id: movie_id)
 
           expect(party.movie_poster).to eq("https://image.tmdb.org/t/p/original/d5NXSklXo0qyIYkgV94XAgMIckC.jpg")
