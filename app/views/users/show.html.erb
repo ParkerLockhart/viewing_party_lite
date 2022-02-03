@@ -9,6 +9,8 @@
       <img src= <%= party.movie_poster %> alt="">
 
       <p><%= link_to "Title: #{party.movie_title}", "/users/#{@user.id}/movies/#{party.movie_id}" %></p>
+      <p><%= "Date: #{party.movie_date}" %></p>
+      <p><%= "Time: #{party.movie_time}" %></p>
     </div>
   <% end %>
 </div>
