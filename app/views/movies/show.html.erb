@@ -2,7 +2,7 @@
 <button><%= link_to "Discover Page", "/users/#{@user.id}/discover" %></button><br>
 <button><%= link_to "Create Viewing Party for #{@details.title}", "/users/#{@user.id}/movies/#{@details.id}/viewing-party/new" %></button><br>
 Vote Average: <%= @details.vote_average %><br>
-Runtime: <%= @details.runtime %><br>
+Runtime: <%= "#{@details.runtime/60}hr" %> <%= "#{@details.runtime % 60} min" %> <br>
 Genre(s):
 <%= @details.genre_names.join(", ") %>
 <hr>
