@@ -14,4 +14,12 @@ class Party < ApplicationRecord
   def movie_poster
     movie.poster_path
   end
+
+  def movie_date
+    start_time.strftime("%b %-d, %Y")
+  end
+
+  def movie_time
+    start_time.strftime("%l:%M %p").lstrip()
+  end
 end

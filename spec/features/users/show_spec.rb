@@ -52,12 +52,12 @@ RSpec.describe 'user dashboard' do
         facade = MovieFacade.new
         movie_id = facade.movie_results('dune')[0].movie_id
         movie = facade.movie_info(movie_id)
-        party = create(:party, host: user_1, movie_id: movie_id, start_time: DateTime.new(2022, 02, 02, 6, 10, 0))
+        party = create(:party, host: user_1, movie_id: movie_id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
 
         visit user_path(user_1)
 
         expect(page).to have_content("Date: Feb 2, 2022")
-        expect(page).to have_content("Time: 6:10pm")
+        expect(page).to have_content("Time: 6:10 PM")
       end
     end
   end
