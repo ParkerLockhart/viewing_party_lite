@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :create] do
     get '/discover', to: 'users#discover'
-    resources :movies, only: [:index, :show, :create] do
+    post '/movies', to: 'movies#index'
+    resources :movies, only: [:index, :show] do
       get '/viewing-party/new', to: 'parties#new'
     end
   end
