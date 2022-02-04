@@ -30,7 +30,6 @@ RSpec.describe 'new viewing party page' do
 
       fill_in 'Date', with: "02/03/2022"
       fill_in 'Start Time', with: "06:30"
-      save_and_open_page
     end
   end
 end
