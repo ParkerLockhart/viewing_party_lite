@@ -18,7 +18,17 @@ RSpec.describe 'user dashboard' do
     expect(current_path).to eq("/users/#{user_1.id}/discover")
   end
 
-  describe 'viewing party sections' do
+  describe 'host viewing party sections' do
+
+    it "only has viewing parties lists where user is the host" do
+      party_1 = create(:party_with_viewers, host: user_1, movie_id: 90)
+      party_2 = create(:party_with_viewers, host: user_1, movie_id: 70)
+      party_3 = create(:party_with_viewers, host: user_1, movie_id: 80)
+      party_4 = create(:party_with_viewers, host: user_2, movie_id: 100)
+
+
+
+    end
 
     it "has a movie image" do
       VCR.use_cassette('create_movie_from_search_dune2') do
@@ -34,7 +44,7 @@ RSpec.describe 'user dashboard' do
     end
 
     it "has a title that links to the movie show page" do
-      VCR.use_cassette('create_movie_from_search_dune2') do
+      VCR.use_cassette('create_movie_from_search_dune3') do
         facade = MovieFacade.new
         movie_id = facade.movie_results('dune')[0].movie_id
         movie = facade.movie_info(movie_id)
