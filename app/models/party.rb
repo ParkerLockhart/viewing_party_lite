@@ -3,8 +3,7 @@ class Party < ApplicationRecord
   has_many :users, through: :party_users
 
   def movie
-    facade = MovieFacade.new
-    facade.movie_info(self.movie_id)
+    MovieFacade.movie_info(self.movie_id)
   end
 
   def movie_title
@@ -28,7 +27,7 @@ class Party < ApplicationRecord
   end
 
   def host_name
-    host.name    
+    host.name
   end
 
   def viewers
