@@ -32,10 +32,8 @@ RSpec.describe 'user dashboard' do
 
     it "has a movie image" do
       VCR.use_cassette('create_movie_from_search_dune2') do
-        facade = MovieFacade.new
-        movie_id = facade.movie_results('dune')[0].movie_id
-        movie = facade.movie_info(movie_id)
-        party = create(:party, host: user_1, movie_id: movie_id)
+        movie = MovieFacade.get_first_movie('dune')
+        party = create(:party, host: user_1, movie_id: movie.id)
 
         visit user_path(user_1)
 
@@ -45,24 +43,20 @@ RSpec.describe 'user dashboard' do
 
     it "has a title that links to the movie show page" do
       VCR.use_cassette('create_movie_from_search_dune3') do
-        facade = MovieFacade.new
-        movie_id = facade.movie_results('dune')[0].movie_id
-        movie = facade.movie_info(movie_id)
-        party = create(:party, host: user_1, movie_id: movie_id)
+        movie = MovieFacade.get_first_movie('dune')
+        party = create(:party, host: user_1, movie_id: movie.id)
 
         visit user_path(user_1)
 
         click_link "Title: Dune"
-        expect(current_path).to eq("/users/#{user_1.id}/movies/#{movie_id}")
+        expect(current_path).to eq("/users/#{user_1.id}/movies/#{movie.id}")
       end
     end
 
     it "has date and time of event" do
       VCR.use_cassette('create_movie_from_search_dune2') do
-        facade = MovieFacade.new
-        movie_id = facade.movie_results('dune')[0].movie_id
-        movie = facade.movie_info(movie_id)
-        party = create(:party, host: user_1, movie_id: movie_id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
+        movie = MovieFacade.get_first_movie('dune')
+        party = create(:party, host: user_1, movie_id: movie.id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
 
         visit user_path(user_1)
 
@@ -73,10 +67,8 @@ RSpec.describe 'user dashboard' do
 
     it "lists the host" do
       VCR.use_cassette('create_movie_from_search_dune2') do
-        facade = MovieFacade.new
-        movie_id = facade.movie_results('dune')[0].movie_id
-        movie = facade.movie_info(movie_id)
-        party = create(:party_with_viewers, host: user_1, viewer_count: 4, movie_id: movie_id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
+        movie = MovieFacade.get_first_movie('dune')
+        party = create(:party_with_viewers, host: user_1, viewer_count: 4, movie_id: movie.id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
 
         visit user_path(user_1)
 
@@ -86,18 +78,16 @@ RSpec.describe 'user dashboard' do
 
     it "lists all viewers who are invited" do
       VCR.use_cassette('create_movie_from_search_dune2') do
-        facade = MovieFacade.new
-        movie_id = facade.movie_results('dune')[0].movie_id
-        movie = facade.movie_info(movie_id)
+        movie = MovieFacade.get_first_movie('dune')
         viewer_1 = create(:user, name: 'Abby')
         viewer_2 = create(:user, name: 'Bob')
         viewer_3 = create(:user, name: 'Charlie')
         viewers = [viewer_1, viewer_2, viewer_3]
-        party = create(:party_with_viewers, host: user_1, viewers: viewers, movie_id: movie_id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
+        party = create(:party_with_viewers, host: user_1, viewers: viewers, movie_id: movie.id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
 
         visit user_path(user_1)
 
-        within "div.movie_#{movie_id}_viewers" do
+        within "div.movie_#{movie.id}_viewers" do
           expect(page).to have_content("Abby")
           expect(page).to have_content("Bob")
           expect(page).to have_content("Charlie")
