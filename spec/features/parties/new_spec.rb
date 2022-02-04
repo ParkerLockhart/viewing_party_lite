@@ -62,14 +62,14 @@ RSpec.describe 'new viewing party page' do
     user_3 = create(:user, name: 'Christy')
     user_4 = create(:user, name: 'Dave')
 
-    VCR.use_cassette('new_viewing_party_dune') do
+    VCR.use_cassette('create_new_viewing_party_dune') do
       movie = MovieFacade.get_first_movie('dune')
       visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
 
       fill_in 'Duration of Party', with: "300"
       fill_in 'Date', with: "02/03/2022"
       fill_in 'Start Time', with: "06:30"
-      save_and_open_page
+
       within 'div.viewers' do
         check 'Abby'
         check 'Bob'
@@ -87,21 +87,21 @@ RSpec.describe 'new viewing party page' do
 
       expect(party.movie_id).to eq(movie.id)
       expect(party.duration).to eq(300)
-      expect(party.start_time).to eq("02/03/2022 06:30:00")
+      expect(party.start_time).to eq(DateTime.new(2022, 02, 03, 6, 30, 0))
 
-      expect(party_user_host.name).to eq("Jeff")
+      expect(party_user_host.party_id).to eq(party.id)
       expect(party_user_host.user_id).to eq(user.id)
       expect(party_user_host.host).to eq(true)
 
-      expect(party_user_1.name).to eq("Abby")
+      expect(party_user_1.party_id).to eq(party.id)
       expect(party_user_1.user_id).to eq(user_1.id)
       expect(party_user_1.host).to eq(false)
 
-      expect(party_user_2.name).to eq("Bob")
+      expect(party_user_2.party_id).to eq(party.id)
       expect(party_user_2.user_id).to eq(user_2.id)
       expect(party_user_2.host).to eq(false)
 
-      expect(party_user_4.name).to eq("Dave")
+      expect(party_user_4.party_id).to eq(party.id)
       expect(party_user_4.user_id).to eq(user_4.id)
       expect(party_user_4.host).to eq(false)
 

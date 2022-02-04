@@ -5,12 +5,12 @@
   <%= form_with url: "/users/#{@user.id}/movies/#{@movie.id}/viewing-party/new", method: :post, local: true do |f| %>
     <div class="date">
       <h3>Choose Date, Time, and Duration of Viewing Party</h3>
-      <%= f.label 'Date' %>
-      <%= f.date_field 'Date', min: Date.today%>
-      <%= f.label 'Start Time' %>
-      <%= f.time_field 'Start Time', include_seconds: false %>
-      <%= f.label "Duration of Party" %>
-      <%= f.number_field "Duration of Party", value: @movie.runtime %>
+      <%= f.label :date, 'Date' %>
+      <%= f.date_field :date, min: Date.today%>
+      <%= f.label :start, 'Start Time' %>
+      <%= f.time_field :start, include_seconds: false %>
+      <%= f.label :duration, "Duration of Party" %>
+      <%= f.number_field :duration, value: @movie.runtime %>
     </div>
 
     <div class="viewers">

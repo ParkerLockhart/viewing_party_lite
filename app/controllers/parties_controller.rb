@@ -6,8 +6,30 @@ class PartiesController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
-    redirect_to
+    user = User.find(params[:user_id])
+    movie = MovieFacade.movie_info(params[:movie_id])
+
+    party = Party.create(movie_id: params[:movie_id],
+                duration: params[:duration],
+                start_time: combine_time)
+
+    PartyUser.create(party_id: party.id,
+                    user_id: params[:user_id],
+                    host: true)
+
+    params[:users].keys.each do |user_id|
+      PartyUser.create(party_id: party.id,
+                      user_id: user_id,
+                      host: false)
+    end
+
+    redirect_to "/users/#{params[:user_id]}"
+  end
+
+  def combine_time
+    d = params[:date].split("/").map {|str| str.to_i}
+    t = params[:start].split(":").map {|str| str.to_i}
+    DateTime.new(d[2], d[0], d[1], t[0], t[1], 0)
   end
 
 end
