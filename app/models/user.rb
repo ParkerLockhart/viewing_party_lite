@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def viewer_parties
     parties.where(party_users: { host: false })
   end
+
+  def self.not_host(user_id)
+    User.where.not(id: user_id)
+  end
 end
