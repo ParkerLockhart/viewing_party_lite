@@ -106,17 +106,53 @@ RSpec.describe 'new viewing party page' do
 
   xit "redirects to the new party page if there is invalid data" do
     VCR.use_cassette('bad_viewing_party_dune_2') do
+      user_1 = create(:user, name: 'Abby')
+      user_2 = create(:user, name: 'Bob')
+      user_3 = create(:user, name: 'Christy')
+      user_4 = create(:user, name: 'Dave')
+
       movie = MovieFacade.get_first_movie('dune')
       visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+
+      fill_in 'Duration of Party', with: "100"
+      fill_in 'Start Time', with: "02/06/2026 06:30"
+
+      within 'div.viewers' do
+        check 'Abby'
+        check 'Bob'
+        check 'Dave'
+      end
 
       click_button 'Create Viewing Party'
 
       expect(page).to eq("/users/#{user.id}/movies/#{movie.id}/viewing-party/new")
-      expect(page).to have_content("Error: please enter duration.")
+      expect(page).to have_content("Error: please enter a duration that is longer than the movie run time.")
     end
   end
 
-  xit "doesn't allow parties of duration shorter than the movie duration" do
+  it "doesn't allow parties of duration shorter than the movie duration" do
+    VCR.use_cassette('bad_viewing_party_duration_dune') do
+      user_1 = create(:user, name: 'Abby')
+      user_2 = create(:user, name: 'Bob')
+      user_3 = create(:user, name: 'Christy')
+      user_4 = create(:user, name: 'Dave')
 
+      movie = MovieFacade.get_first_movie('dune')
+      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+
+      fill_in 'Duration of Party', with: "100"
+      fill_in 'Start Time', with: "02/06/2026 06:30"
+
+      within 'div.viewers' do
+        check 'Abby'
+        check 'Bob'
+        check 'Dave'
+      end
+
+      click_button 'Create Viewing Party'
+
+      expect(current_path).to eq("/users/#{user.id}/movies/#{movie.id}/viewing-party/new")
+      expect(page).to have_content("Error: please enter a duration that is longer than the movie run time.")
+    end
   end
 end
