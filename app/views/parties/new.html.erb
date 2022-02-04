@@ -1,0 +1,27 @@
+<h1><%= @movie.title %></h1>
+
+<fieldset>
+  <legend>Create Viewing Party</legend>
+  <%= form_with url: "/users/#{@user.id}/movies/#{@movie.id}/viewing-party/new", method: :post, local: true do |f| %>
+    <div class="date">
+      <h3>Choose Date, Time, and Duration of Viewing Party</h3>
+      <%= f.label :date, 'Date' %>
+      <%= f.date_field :date, min: Date.today%>
+      <%= f.label :start, 'Start Time' %>
+      <%= f.time_field :start, include_seconds: false %>
+      <%= f.label :duration, "Duration of Party" %>
+      <%= f.number_field :duration, value: @movie.runtime %>
+    </div>
+
+    <div class="viewers">
+      <h3>Add Viewers to Viewing Party</h3>
+      <% @viewers.each do |user| %>
+        <div class=<%= "user_#{user.id}" %>>
+          <%= f.label "users[#{user.id}]", "#{user.name}"%>
+          <%= f.check_box "users[#{user.id}]", {}, true, false %>
+        </div>
+      <% end %>
+    </div>
+    <%= f.submit 'Create Viewing Party'%>
+  <% end %>
+</fieldset>

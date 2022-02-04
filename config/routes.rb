@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post '/movies', to: 'movies#index'
     resources :movies, only: [:index, :show] do
       get '/viewing-party/new', to: 'parties#new'
+      post '/viewing-party/new', to: 'parties#create'
     end
   end
 

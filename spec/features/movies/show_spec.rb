@@ -7,12 +7,14 @@ RSpec.describe 'movie details page' do
   before(:each) do
     VCR.insert_cassette('dune_details')
     VCR.insert_cassette('dune_reviews')
+    VCR.insert_cassette('dune_new_party')
     visit dune_url
   end
 
   after(:each) do
     VCR.eject_cassette('dune_details')
     VCR.eject_cassette('dune_reviews')
+    VCR.eject_cassette('dune_new_party')
   end
 
   it 'shows app name' do
