@@ -5,9 +5,10 @@
   <%= form_with url: "/users/#{@user.id}/movies/#{@movie.id}", method: :post, local: true do |f| %>
     <%= f.label "Duration of Party" %>
     <%= f.number_field "Duration of Party", value: @movie.runtime %>
-    <%=  %>
-    <%=  %>
-    <%=  %>
+    <%= f.label 'Date' %>
+    <%= f.date_field 'Date', min: Date.today%>
+    <%= f.label 'Start Time' %>
+    <%= f.time_field 'Start Time', include_seconds: false %>
     <%=  %>
   <% end %>
 </fieldset>
