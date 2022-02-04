@@ -33,4 +33,17 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'class methods' do
+    describe '.not_hosts' do
+      it "returns all the users but the passed user_id" do
+        user_1 = create(:user, name: 'Abby')
+        user_2 = create(:user, name: 'Bob')
+        user_3 = create(:user, name: 'Christy')
+        user_4 = create(:user, name: 'Dave')
+
+        expect(User.not_host(user_2.id)).to eq([user_1, user_3, user_4])
+      end
+    end
+  end
 end
