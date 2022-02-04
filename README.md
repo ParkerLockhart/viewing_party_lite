@@ -41,3 +41,7 @@ Tested using:
 1. Fork and Clone the repo
 2. Install gem packages: `bundle install`
 3. Setup the database: `rails db:create`
+
+## Database Schema
+
+![image](https://user-images.githubusercontent.com/15107515/152598066-5fa3a9cd-dbaf-4ffd-b49a-79bff90cc02b.png)
