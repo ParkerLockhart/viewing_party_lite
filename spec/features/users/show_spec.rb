@@ -102,7 +102,6 @@ RSpec.describe 'user dashboard' do
             party_3 = create(:party_with_viewers, host: user_3, viewers: [user_1, user_4], movie_id: movie_3.id, start_time: DateTime.new(2022, 02, 02, 18, 30, 0))
 
             visit user_path(user_1)
-            save_and_open_page
 
             within "div.viewing_party_#{movie_1.id}" do
               expect(page).to have_content("Hosting")
