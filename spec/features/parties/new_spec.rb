@@ -46,7 +46,6 @@ RSpec.describe 'new viewing party page' do
       movie = MovieFacade.get_first_movie('dune')
       visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
 
-
       within 'div.users' do
         expect(page).to have_content('Abby')
         expect(page).to have_content('Bob')
@@ -55,5 +54,66 @@ RSpec.describe 'new viewing party page' do
         expect(page).to_not have_content('Jeff')
       end
     end
+  end
+
+  it "has a submit button that creates a new viewing party and party_user objects and redirects to user dashboard" do
+    user_1 = create(:user, name: 'Abby')
+    user_2 = create(:user, name: 'Bob')
+    user_3 = create(:user, name: 'Christy')
+    user_4 = create(:user, name: 'Dave')
+
+    VCR.use_cassette('new_viewing_party_dune') do
+      movie = MovieFacade.get_first_movie('dune')
+      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+
+      fill_in 'Duration of Party', with: "300"
+      fill_in 'Date', with: "02/03/2022"
+      fill_in 'Start Time', with: "06:30"
+      save_and_open_page
+      within 'div.viewers' do
+        check 'Abby'
+        check 'Bob'
+        check 'Dave'
+      end
+
+      click_button "Create Viewing Party"
+
+      party = Party.last
+      party_users = PartyUser.last(4)
+      party_user_host = party_users[0]
+      party_user_1 = party_users[1]
+      party_user_2 = party_users[2]
+      party_user_4 = party_users[3]
+
+      expect(party.movie_id).to eq(movie.id)
+      expect(party.duration).to eq(300)
+      expect(party.start_time).to eq("02/03/2022 06:30:00")
+
+      expect(party_user_host.name).to eq("Jeff")
+      expect(party_user_host.user_id).to eq(user.id)
+      expect(party_user_host.host).to eq(true)
+
+      expect(party_user_1.name).to eq("Abby")
+      expect(party_user_1.user_id).to eq(user_1.id)
+      expect(party_user_1.host).to eq(false)
+
+      expect(party_user_2.name).to eq("Bob")
+      expect(party_user_2.user_id).to eq(user_2.id)
+      expect(party_user_2.host).to eq(false)
+
+      expect(party_user_4.name).to eq("Dave")
+      expect(party_user_4.user_id).to eq(user_4.id)
+      expect(party_user_4.host).to eq(false)
+
+      expect(current_path).to eq("/users/#{user.id}")
+    end
+  end
+
+  it "has a submit button that redirects to the new party page if there is invalid data" do
+
+  end
+
+  it "doesn't allow parties of duration shorter than the movie duration" do
+
   end
 end
