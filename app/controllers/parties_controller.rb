@@ -9,7 +9,7 @@ class PartiesController < ApplicationController
     user = User.find(params[:user_id])
     movie = MovieFacade.movie_info(params[:movie_id])
 
-    if params[:duration] < movie.runtime.to_s
+    if params[:duration].to_i < movie.runtime.to_i
       redirect_to "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
       flash[:alert] = "Error: please enter a duration that is longer than the movie run time."
 
