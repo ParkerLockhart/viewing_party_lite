@@ -124,7 +124,7 @@ RSpec.describe 'user movie results page' do
       VCR.use_cassette('dune_details') do
         VCR.use_cassette('dune_reviews') do
           visit search_url
-          save_and_open_page
+  
           within("#movie-id-438631") do
             expect(page).to have_link("Dune")
             first(:link, "Dune").click
