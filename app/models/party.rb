@@ -1,6 +1,8 @@
 class Party < ApplicationRecord
   has_many :party_users
   has_many :users, through: :party_users
+  validates :movie_id, :duration, :start_time, presence: true
+
 
   def movie
     MovieFacade.movie_info(self.movie_id)

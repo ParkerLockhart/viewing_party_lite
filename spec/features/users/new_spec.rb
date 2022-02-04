@@ -24,4 +24,11 @@ RSpec.describe 'new user page' do
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("#{user.name}'s Dashboard")
   end
+
+  it 'shows error if user not created' do
+    click_button("Create New User")
+
+    expect(current_path).to eq("/register")
+    expect(page).to have_content("Error: please enter a name and unique email to register.")
+  end 
 end

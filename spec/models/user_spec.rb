@@ -6,6 +6,12 @@ RSpec.describe User, type: :model do
     it { should have_many(:parties).through(:party_users) }
   end
 
+  describe 'validations' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
+    it { should validate_uniqueness_of(:email) }
+  end 
+
   describe 'instance methods' do
     describe '#host_parties' do
       it "returns all the viewing parties that the user is hosting" do

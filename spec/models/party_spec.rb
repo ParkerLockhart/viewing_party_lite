@@ -6,6 +6,12 @@ RSpec.describe Party, type: :model do
     it { should have_many(:users).through(:party_users) }
   end
 
+  describe 'validations' do
+    it { should validate_presence_of(:movie_id) }
+    it { should validate_presence_of(:duration) }
+    it { should validate_presence_of(:start_time) }
+  end 
+
   describe 'instance methods' do
     let!(:user_1) { create(:user) }
 

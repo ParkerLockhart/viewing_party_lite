@@ -6,7 +6,7 @@
   <h4>Viewing Parties</h4>
   <% @user.parties.each do |party| %>
     <div class=<%= "viewing_party_#{party.movie_id}" %>>
-      <img src= <%= party.movie_poster %> alt="">
+      <img src= <%= party.movie_poster %> alt="" style="width:25%;height:25%;">
 
       <p><%= link_to "Title: #{party.movie_title}", "/users/#{@user.id}/movies/#{party.movie_id}" %></p>
       <p><%= "Date: #{party.movie_date}" %></p>
@@ -38,9 +38,6 @@
           </ul>
         </div>
       <% end %>
-
-
-
     </div>
   <% end %>
 </div>
