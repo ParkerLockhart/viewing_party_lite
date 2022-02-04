@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/438631?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 02:49:29 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - a6bc7fbbe8078fdc1ee0dd6ce20ba0cd06f178f7
+      X-Memc-Age:
+      - '9958'
+      X-Memc-Expires:
+      - '5026'
+      Etag:
+      - W/"eea02392e77055e2b729b79198ce383a"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 479aaa0a2cf1d8d19840caa21afcb754.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C4
+      X-Amz-Cf-Id:
+      - BjePVI-dS8Zy4m5YRYOw9BKdSPzHSlKNi_v31tiBHZfk2pXh7s64Kg==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvd1lNYm5yZFJDUkVqTkx3RmxHNVNMV3pCanVpLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6eyJpZCI6NzI2ODcxLCJuYW1lIjoiRHVuZSBDb2xsZWN0aW9uIiwicG9zdGVyX3BhdGgiOiIvYzFBaVpUWHl5em1QT2xUTFN1YnA3Q0VlWWouanBnIiwiYmFja2Ryb3BfcGF0aCI6Ii9pQ0ZGbVhrSzVGZEl6cVp5eVFRRWRwa1RvOEMuanBnIn0sImJ1ZGdldCI6MTY1MDAwMDAwLCJnZW5yZXMiOlt7ImlkIjo4NzgsIm5hbWUiOiJTY2llbmNlIEZpY3Rpb24ifSx7ImlkIjoxMiwibmFtZSI6IkFkdmVudHVyZSJ9XSwiaG9tZXBhZ2UiOiJodHRwczovL3d3dy5kdW5lbW92aWUuY29tLyIsImlkIjo0Mzg2MzEsImltZGJfaWQiOiJ0dDExNjA0MTkiLCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJEdW5lIiwib3ZlcnZpZXciOiJQYXVsIEF0cmVpZGVzLCBhIGJyaWxsaWFudCBhbmQgZ2lmdGVkIHlvdW5nIG1hbiBib3JuIGludG8gYSBncmVhdCBkZXN0aW55IGJleW9uZCBoaXMgdW5kZXJzdGFuZGluZywgbXVzdCB0cmF2ZWwgdG8gdGhlIG1vc3QgZGFuZ2Vyb3VzIHBsYW5ldCBpbiB0aGUgdW5pdmVyc2UgdG8gZW5zdXJlIHRoZSBmdXR1cmUgb2YgaGlzIGZhbWlseSBhbmQgaGlzIHBlb3BsZS4gQXMgbWFsZXZvbGVudCBmb3JjZXMgZXhwbG9kZSBpbnRvIGNvbmZsaWN0IG92ZXIgdGhlIHBsYW5ldCdzIGV4Y2x1c2l2ZSBzdXBwbHkgb2YgdGhlIG1vc3QgcHJlY2lvdXMgcmVzb3VyY2UgaW4gZXhpc3RlbmNlLWEgY29tbW9kaXR5IGNhcGFibGUgb2YgdW5sb2NraW5nIGh1bWFuaXR5J3MgZ3JlYXRlc3QgcG90ZW50aWFsLW9ubHkgdGhvc2Ugd2hvIGNhbiBjb25xdWVyIHRoZWlyIGZlYXIgd2lsbCBzdXJ2aXZlLiIsInBvcHVsYXJpdHkiOjU0MC44ODcsInBvc3Rlcl9wYXRoIjoiL2Q1TlhTa2xYbzBxeUlZa2dWOTRYQWdNSWNrQy5qcGciLCJwcm9kdWN0aW9uX2NvbXBhbmllcyI6W3siaWQiOjkyMywibG9nb19wYXRoIjoiLzVVUXNacmZiZkcyZFlKYng4RHhmb1RyMkJ2dS5wbmciLCJuYW1lIjoiTGVnZW5kYXJ5IFBpY3R1cmVzIiwib3JpZ2luX2NvdW50cnkiOiJVUyJ9XSwicHJvZHVjdGlvbl9jb3VudHJpZXMiOlt7Imlzb18zMTY2XzEiOiJVUyIsIm5hbWUiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EifV0sInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDktMTUiLCJyZXZlbnVlIjozOTYwMDAwMDAsInJ1bnRpbWUiOjE1NSwic3Bva2VuX2xhbmd1YWdlcyI6W3siZW5nbGlzaF9uYW1lIjoiTWFuZGFyaW4iLCJpc29fNjM5XzEiOiJ6aCIsIm5hbWUiOiLmma7pgJror50ifSx7ImVuZ2xpc2hfbmFtZSI6IkVuZ2xpc2giLCJpc29fNjM5XzEiOiJlbiIsIm5hbWUiOiJFbmdsaXNoIn1dLCJzdGF0dXMiOiJSZWxlYXNlZCIsInRhZ2xpbmUiOiJCZXlvbmQgZmVhciwgZGVzdGlueSBhd2FpdHMuIiwidGl0bGUiOiJEdW5lIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjcuOSwidm90ZV9jb3VudCI6NTc3Nn0=
+  recorded_at: Fri, 04 Feb 2022 02:49:29 GMT
+recorded_with: VCR 6.0.0

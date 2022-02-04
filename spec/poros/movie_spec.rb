@@ -23,6 +23,6 @@ RSpec.describe Movie do
     expect(dune.genres.first).to eq("Sci fi")
     expect(dune.genres.last).to eq("Adventure")
     expect(dune.runtime).to eq(155)
-    expect(dune.poster_path).to eq("dune.jpg")
+    expect(dune.poster_path).to eq("https://image.tmdb.org/t/p/originaldune.jpg")
   end
 end
