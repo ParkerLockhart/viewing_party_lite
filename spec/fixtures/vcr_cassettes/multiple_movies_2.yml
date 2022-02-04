@@ -1,0 +1,139 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=<movie_api_key>&language=en-US&query=terminator%20salvation
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 01:24:07 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 c601f966b37ebf3a1ddf28f033b35904.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - 2-qmT1eAF4zmmsrCTVoAJc5Fg9s_p79RUwAlOwwox5c8CBJjO8ExCw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/aSXqVCYz3FYuDRjihoqQiXtAVa6.jpg","genre_ids":[28,878,53],"id":534,"original_language":"en","original_title":"Terminator
+        Salvation","overview":"All grown up in post-apocalyptic 2018, John Connor
+        must lead the resistance of humans against the increasingly dominating militaristic
+        robots. But when Marcus Wright appears, his existence confuses the mission
+        as Connor tries to determine whether Wright has come from the future or the
+        past -- and whether he''s friend or foe.","popularity":115.889,"poster_path":"/gw6JhlekZgtKUFlDTezq3j5JEPK.jpg","release_date":"2009-05-20","title":"Terminator
+        Salvation","video":false,"vote_average":6,"vote_count":5243},{"adult":false,"backdrop_path":null,"genre_ids":[16,28,12],"id":222148,"original_language":"en","original_title":"Terminator:
+        Salvation The Machinima Series","overview":"In the Year 2016, Resistance fighter
+        Blair Williams embarks on a deadly mission to search for a threat that is
+        weakening humanity''s defense against the self-aware artificial intelligence
+        called Skynet and it''s lethal Terminators.","popularity":8.066,"poster_path":"/aWX62gBQVpCJ1zOkMgqGx9o8Sli.jpg","release_date":"2009-05-18","title":"Terminator:
+        Salvation The Machinima Series","video":false,"vote_average":6.2,"vote_count":16}],"total_pages":1,"total_results":2}'
+  recorded_at: Fri, 04 Feb 2022 01:24:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/534?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 01:24:07 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 4c4119c0660281fd8efffca5a7b7226cf7f5085c
+      X-Memc-Age:
+      - '8811'
+      X-Memc-Expires:
+      - '6421'
+      Etag:
+      - W/"0d0dde573f2bddbf890b1a684393de68"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 c601f966b37ebf3a1ddf28f033b35904.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - dqrTPiSK1IbvAZ3WWe4Ik6JvnhTkednN9_9huAJLNNjRiy6datTB6Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/aSXqVCYz3FYuDRjihoqQiXtAVa6.jpg","belongs_to_collection":{"id":528,"name":"The
+        Terminator Collection","poster_path":"/kpZxdNsAV7qTdTLwKM5NLqa7GEo.jpg","backdrop_path":"/cpmbkwSxZnKO69V82A9a34tvk2E.jpg"},"budget":200000000,"genres":[{"id":28,"name":"Action"},{"id":878,"name":"Science
+        Fiction"},{"id":53,"name":"Thriller"}],"homepage":"https://www.warnerbros.com/terminator-salvation","id":534,"imdb_id":"tt0438488","original_language":"en","original_title":"Terminator
+        Salvation","overview":"All grown up in post-apocalyptic 2018, John Connor
+        must lead the resistance of humans against the increasingly dominating militaristic
+        robots. But when Marcus Wright appears, his existence confuses the mission
+        as Connor tries to determine whether Wright has come from the future or the
+        past -- and whether he''s friend or foe.","popularity":120.904,"poster_path":"/gw6JhlekZgtKUFlDTezq3j5JEPK.jpg","production_companies":[{"id":5,"logo_path":"/71BqEFAF4V3qjjMPCpLuyJFB9A.png","name":"Columbia
+        Pictures","origin_country":"US"},{"id":4021,"logo_path":null,"name":"The Halcyon
+        Company","origin_country":""},{"id":4022,"logo_path":"/q6Xts6ztGkTHrY1WfHttlhL3Pfc.png","name":"Wonderland
+        Sound and Vision","origin_country":"US"},{"id":174,"logo_path":"/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png","name":"Warner
+        Bros. Pictures","origin_country":"US"}],"production_countries":[{"iso_3166_1":"DE","name":"Germany"},{"iso_3166_1":"IT","name":"Italy"},{"iso_3166_1":"GB","name":"United
+        Kingdom"},{"iso_3166_1":"US","name":"United States of America"}],"release_date":"2009-05-20","revenue":371353001,"runtime":115,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"}],"status":"Released","tagline":"The
+        End Begins.","title":"Terminator Salvation","video":false,"vote_average":6.0,"vote_count":5243}'
+  recorded_at: Fri, 04 Feb 2022 01:24:07 GMT
+recorded_with: VCR 6.0.0

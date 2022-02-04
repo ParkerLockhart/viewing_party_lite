@@ -33,7 +33,7 @@ class MovieFacade
 
   def self.get_first_movie(query)
     facade = MovieFacade.new
-    movie_id = facade.movie_results('dune')[0].movie_id
+    movie_id = facade.movie_results(query)[0].movie_id
     movie = facade.movie_info(movie_id)
   end
 end

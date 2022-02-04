@@ -18,17 +18,7 @@ RSpec.describe 'user dashboard' do
     expect(current_path).to eq("/users/#{user_1.id}/discover")
   end
 
-  describe 'host viewing party sections' do
-
-    it "only has viewing parties lists where user is the host" do
-      party_1 = create(:party_with_viewers, host: user_1, movie_id: 90)
-      party_2 = create(:party_with_viewers, host: user_1, movie_id: 70)
-      party_3 = create(:party_with_viewers, host: user_1, movie_id: 80)
-      party_4 = create(:party_with_viewers, host: user_2, movie_id: 100)
-
-
-
-    end
+  describe 'viewing party sections' do
 
     it "has a movie image" do
       VCR.use_cassette('create_movie_from_search_dune2') do
@@ -72,7 +62,7 @@ RSpec.describe 'user dashboard' do
 
         visit user_path(user_1)
 
-        expect(page).to have_content("Host: Jeff")
+        expect(page).to have_content("Hosting")
       end
     end
 
@@ -92,6 +82,43 @@ RSpec.describe 'user dashboard' do
           expect(page).to have_content("Bob")
           expect(page).to have_content("Charlie")
           expect(page).to_not have_content("Jeff")
+        end
+      end
+    end
+
+    it "lists all parties the user is involved with" do
+      VCR.use_cassette('multiple_movies_1') do
+        movie_1 = MovieFacade.get_first_movie('dune')
+        VCR.use_cassette('multiple_movies_2') do
+          movie_2 = MovieFacade.get_first_movie('terminator salvation')
+          VCR.use_cassette('multiple_movies_3') do
+            movie_3 = MovieFacade.get_first_movie('the matrix resurrections')
+            user_2 = create(:user)
+            user_3 = create(:user)
+            user_4 = create(:user)
+
+            party_1 = create(:party_with_viewers, host: user_1, viewer_count: 4, movie_id: movie_1.id, start_time: DateTime.new(2022, 02, 02, 12, 10, 0))
+            party_2 = create(:party_with_viewers, host: user_2, viewers: [user_1, user_3, user_4], movie_id: movie_2.id, start_time: DateTime.new(2022, 02, 02, 14, 00, 0))
+            party_3 = create(:party_with_viewers, host: user_3, viewers: [user_1, user_4], movie_id: movie_3.id, start_time: DateTime.new(2022, 02, 02, 18, 30, 0))
+
+            visit user_path(user_1)
+            save_and_open_page
+
+            within "div.viewing_party_#{movie_1.id}" do
+              expect(page).to have_content("Hosting")
+              expect(page).to have_content("Title: Dune")
+            end
+
+            within "div.viewing_party_#{movie_2.id}" do
+              expect(page).to_not have_content("Hosting")
+              expect(page).to have_content("Title: Terminator Salvation")
+            end
+
+            within "div.viewing_party_#{movie_3.id}" do
+              expect(page).to_not have_content("Hosting")
+              expect(page).to have_content("Title: The Matrix Resurrections")
+            end
+          end
         end
       end
     end
