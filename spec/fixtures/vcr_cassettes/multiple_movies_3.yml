@@ -1,0 +1,551 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=<movie_api_key>&language=en-US&query=the%20matrix%20resurrections
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 01:24:07 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 649e92b251b584632a2d3462342d816a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - xwaN9ywlchxh57KXTyrq6Rj97zBlVK8BsaDLjNP0PkTuK7z0WSU8aA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg","genre_ids":[878,28,12],"id":624860,"original_language":"en","original_title":"The
+        Matrix Resurrections","overview":"Plagued by strange memories, Neo''s life
+        takes an unexpected turn when he finds himself back inside the Matrix.","popularity":1973.009,"poster_path":"/8c4a8kE7PizaGQQnditMmI1xbRp.jpg","release_date":"2021-12-16","title":"The
+        Matrix Resurrections","video":false,"vote_average":6.8,"vote_count":2718}],"total_pages":1,"total_results":1}'
+  recorded_at: Fri, 04 Feb 2022 01:24:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/624860?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 01:24:07 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 8312016bf93f1e2b2b9412af28ac5718a3119176
+      X-Memc-Age:
+      - '1072'
+      X-Memc-Expires:
+      - '14127'
+      Etag:
+      - W/"e06fd596205a9aba6eb930873f1dc17f"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ac3f0425be668a2439884bb8cbd3ccd8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - jb1efW09cN2P1Z2xEN6XIE1LAgJq8LiSh_9lFvabcNs_tGPuHbfOJA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg","belongs_to_collection":{"id":2344,"name":"The
+        Matrix Collection","poster_path":"/bV9qTVHTVf0gkW0j7p7M0ILD4pG.jpg","backdrop_path":"/bRm2DEgUiYciDw3myHuYFInD7la.jpg"},"budget":190000000,"genres":[{"id":878,"name":"Science
+        Fiction"},{"id":28,"name":"Action"},{"id":12,"name":"Adventure"}],"homepage":"https://www.whatisthematrix.com","id":624860,"imdb_id":"tt10838180","original_language":"en","original_title":"The
+        Matrix Resurrections","overview":"Plagued by strange memories, Neo''s life
+        takes an unexpected turn when he finds himself back inside the Matrix.","popularity":1973.536,"poster_path":"/8c4a8kE7PizaGQQnditMmI1xbRp.jpg","production_companies":[{"id":174,"logo_path":"/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png","name":"Warner
+        Bros. Pictures","origin_country":"US"},{"id":79,"logo_path":"/tpFpsqbleCzEE2p5EgvUq6ozfCA.png","name":"Village
+        Roadshow Pictures","origin_country":"US"},{"id":84764,"logo_path":null,"name":"Venus
+        Castina Productions","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"2021-12-16","revenue":148000000,"runtime":148,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Return
+        to the source.","title":"The Matrix Resurrections","video":false,"vote_average":6.8,"vote_count":2718}'
+  recorded_at: Fri, 04 Feb 2022 01:24:07 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/438631?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 00:08:13 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - a6bc7fbbe8078fdc1ee0dd6ce20ba0cd06f178f7
+      X-Memc-Age:
+      - '282'
+      X-Memc-Expires:
+      - '14702'
+      Etag:
+      - W/"eea02392e77055e2b729b79198ce383a"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 c4f3ed9d980b0f0938aa71b835d9bf96.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - g0ByD1hsjBuVTV5-014bNzgIvFqakQXkCFUQjp38F2_ktDF0fTTUiA==
+      Age:
+      - '4555'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvd1lNYm5yZFJDUkVqTkx3RmxHNVNMV3pCanVpLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6eyJpZCI6NzI2ODcxLCJuYW1lIjoiRHVuZSBDb2xsZWN0aW9uIiwicG9zdGVyX3BhdGgiOiIvYzFBaVpUWHl5em1QT2xUTFN1YnA3Q0VlWWouanBnIiwiYmFja2Ryb3BfcGF0aCI6Ii9pQ0ZGbVhrSzVGZEl6cVp5eVFRRWRwa1RvOEMuanBnIn0sImJ1ZGdldCI6MTY1MDAwMDAwLCJnZW5yZXMiOlt7ImlkIjo4NzgsIm5hbWUiOiJTY2llbmNlIEZpY3Rpb24ifSx7ImlkIjoxMiwibmFtZSI6IkFkdmVudHVyZSJ9XSwiaG9tZXBhZ2UiOiJodHRwczovL3d3dy5kdW5lbW92aWUuY29tLyIsImlkIjo0Mzg2MzEsImltZGJfaWQiOiJ0dDExNjA0MTkiLCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJEdW5lIiwib3ZlcnZpZXciOiJQYXVsIEF0cmVpZGVzLCBhIGJyaWxsaWFudCBhbmQgZ2lmdGVkIHlvdW5nIG1hbiBib3JuIGludG8gYSBncmVhdCBkZXN0aW55IGJleW9uZCBoaXMgdW5kZXJzdGFuZGluZywgbXVzdCB0cmF2ZWwgdG8gdGhlIG1vc3QgZGFuZ2Vyb3VzIHBsYW5ldCBpbiB0aGUgdW5pdmVyc2UgdG8gZW5zdXJlIHRoZSBmdXR1cmUgb2YgaGlzIGZhbWlseSBhbmQgaGlzIHBlb3BsZS4gQXMgbWFsZXZvbGVudCBmb3JjZXMgZXhwbG9kZSBpbnRvIGNvbmZsaWN0IG92ZXIgdGhlIHBsYW5ldCdzIGV4Y2x1c2l2ZSBzdXBwbHkgb2YgdGhlIG1vc3QgcHJlY2lvdXMgcmVzb3VyY2UgaW4gZXhpc3RlbmNlLWEgY29tbW9kaXR5IGNhcGFibGUgb2YgdW5sb2NraW5nIGh1bWFuaXR5J3MgZ3JlYXRlc3QgcG90ZW50aWFsLW9ubHkgdGhvc2Ugd2hvIGNhbiBjb25xdWVyIHRoZWlyIGZlYXIgd2lsbCBzdXJ2aXZlLiIsInBvcHVsYXJpdHkiOjU0MC44ODcsInBvc3Rlcl9wYXRoIjoiL2Q1TlhTa2xYbzBxeUlZa2dWOTRYQWdNSWNrQy5qcGciLCJwcm9kdWN0aW9uX2NvbXBhbmllcyI6W3siaWQiOjkyMywibG9nb19wYXRoIjoiLzVVUXNacmZiZkcyZFlKYng4RHhmb1RyMkJ2dS5wbmciLCJuYW1lIjoiTGVnZW5kYXJ5IFBpY3R1cmVzIiwib3JpZ2luX2NvdW50cnkiOiJVUyJ9XSwicHJvZHVjdGlvbl9jb3VudHJpZXMiOlt7Imlzb18zMTY2XzEiOiJVUyIsIm5hbWUiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EifV0sInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDktMTUiLCJyZXZlbnVlIjozOTYwMDAwMDAsInJ1bnRpbWUiOjE1NSwic3Bva2VuX2xhbmd1YWdlcyI6W3siZW5nbGlzaF9uYW1lIjoiTWFuZGFyaW4iLCJpc29fNjM5XzEiOiJ6aCIsIm5hbWUiOiLmma7pgJror50ifSx7ImVuZ2xpc2hfbmFtZSI6IkVuZ2xpc2giLCJpc29fNjM5XzEiOiJlbiIsIm5hbWUiOiJFbmdsaXNoIn1dLCJzdGF0dXMiOiJSZWxlYXNlZCIsInRhZ2xpbmUiOiJCZXlvbmQgZmVhciwgZGVzdGlueSBhd2FpdHMuIiwidGl0bGUiOiJEdW5lIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjcuOSwidm90ZV9jb3VudCI6NTc3Nn0=
+  recorded_at: Fri, 04 Feb 2022 01:24:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/438631?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 00:08:13 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - a6bc7fbbe8078fdc1ee0dd6ce20ba0cd06f178f7
+      X-Memc-Age:
+      - '282'
+      X-Memc-Expires:
+      - '14702'
+      Etag:
+      - W/"eea02392e77055e2b729b79198ce383a"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 5a47b5b66519af1f8eb0c6ec27f68d54.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - I9CmLTEmO4stimJRmtedQOrFgpxLbUAR6ukF7AiXzB24J6ooRQdyWQ==
+      Age:
+      - '4555'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvd1lNYm5yZFJDUkVqTkx3RmxHNVNMV3pCanVpLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6eyJpZCI6NzI2ODcxLCJuYW1lIjoiRHVuZSBDb2xsZWN0aW9uIiwicG9zdGVyX3BhdGgiOiIvYzFBaVpUWHl5em1QT2xUTFN1YnA3Q0VlWWouanBnIiwiYmFja2Ryb3BfcGF0aCI6Ii9pQ0ZGbVhrSzVGZEl6cVp5eVFRRWRwa1RvOEMuanBnIn0sImJ1ZGdldCI6MTY1MDAwMDAwLCJnZW5yZXMiOlt7ImlkIjo4NzgsIm5hbWUiOiJTY2llbmNlIEZpY3Rpb24ifSx7ImlkIjoxMiwibmFtZSI6IkFkdmVudHVyZSJ9XSwiaG9tZXBhZ2UiOiJodHRwczovL3d3dy5kdW5lbW92aWUuY29tLyIsImlkIjo0Mzg2MzEsImltZGJfaWQiOiJ0dDExNjA0MTkiLCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJEdW5lIiwib3ZlcnZpZXciOiJQYXVsIEF0cmVpZGVzLCBhIGJyaWxsaWFudCBhbmQgZ2lmdGVkIHlvdW5nIG1hbiBib3JuIGludG8gYSBncmVhdCBkZXN0aW55IGJleW9uZCBoaXMgdW5kZXJzdGFuZGluZywgbXVzdCB0cmF2ZWwgdG8gdGhlIG1vc3QgZGFuZ2Vyb3VzIHBsYW5ldCBpbiB0aGUgdW5pdmVyc2UgdG8gZW5zdXJlIHRoZSBmdXR1cmUgb2YgaGlzIGZhbWlseSBhbmQgaGlzIHBlb3BsZS4gQXMgbWFsZXZvbGVudCBmb3JjZXMgZXhwbG9kZSBpbnRvIGNvbmZsaWN0IG92ZXIgdGhlIHBsYW5ldCdzIGV4Y2x1c2l2ZSBzdXBwbHkgb2YgdGhlIG1vc3QgcHJlY2lvdXMgcmVzb3VyY2UgaW4gZXhpc3RlbmNlLWEgY29tbW9kaXR5IGNhcGFibGUgb2YgdW5sb2NraW5nIGh1bWFuaXR5J3MgZ3JlYXRlc3QgcG90ZW50aWFsLW9ubHkgdGhvc2Ugd2hvIGNhbiBjb25xdWVyIHRoZWlyIGZlYXIgd2lsbCBzdXJ2aXZlLiIsInBvcHVsYXJpdHkiOjU0MC44ODcsInBvc3Rlcl9wYXRoIjoiL2Q1TlhTa2xYbzBxeUlZa2dWOTRYQWdNSWNrQy5qcGciLCJwcm9kdWN0aW9uX2NvbXBhbmllcyI6W3siaWQiOjkyMywibG9nb19wYXRoIjoiLzVVUXNacmZiZkcyZFlKYng4RHhmb1RyMkJ2dS5wbmciLCJuYW1lIjoiTGVnZW5kYXJ5IFBpY3R1cmVzIiwib3JpZ2luX2NvdW50cnkiOiJVUyJ9XSwicHJvZHVjdGlvbl9jb3VudHJpZXMiOlt7Imlzb18zMTY2XzEiOiJVUyIsIm5hbWUiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EifV0sInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDktMTUiLCJyZXZlbnVlIjozOTYwMDAwMDAsInJ1bnRpbWUiOjE1NSwic3Bva2VuX2xhbmd1YWdlcyI6W3siZW5nbGlzaF9uYW1lIjoiTWFuZGFyaW4iLCJpc29fNjM5XzEiOiJ6aCIsIm5hbWUiOiLmma7pgJror50ifSx7ImVuZ2xpc2hfbmFtZSI6IkVuZ2xpc2giLCJpc29fNjM5XzEiOiJlbiIsIm5hbWUiOiJFbmdsaXNoIn1dLCJzdGF0dXMiOiJSZWxlYXNlZCIsInRhZ2xpbmUiOiJCZXlvbmQgZmVhciwgZGVzdGlueSBhd2FpdHMuIiwidGl0bGUiOiJEdW5lIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjcuOSwidm90ZV9jb3VudCI6NTc3Nn0=
+  recorded_at: Fri, 04 Feb 2022 01:24:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/534?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 01:24:07 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 4c4119c0660281fd8efffca5a7b7226cf7f5085c
+      X-Memc-Age:
+      - '8811'
+      X-Memc-Expires:
+      - '6421'
+      Etag:
+      - W/"0d0dde573f2bddbf890b1a684393de68"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 2160425a36a5a0604048dda5b151b504.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - gvMGASzg-T4Z4L0IK8bhHcsTABdUFdGbElAJ3t6c6AY00HuHdPPBIA==
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/aSXqVCYz3FYuDRjihoqQiXtAVa6.jpg","belongs_to_collection":{"id":528,"name":"The
+        Terminator Collection","poster_path":"/kpZxdNsAV7qTdTLwKM5NLqa7GEo.jpg","backdrop_path":"/cpmbkwSxZnKO69V82A9a34tvk2E.jpg"},"budget":200000000,"genres":[{"id":28,"name":"Action"},{"id":878,"name":"Science
+        Fiction"},{"id":53,"name":"Thriller"}],"homepage":"https://www.warnerbros.com/terminator-salvation","id":534,"imdb_id":"tt0438488","original_language":"en","original_title":"Terminator
+        Salvation","overview":"All grown up in post-apocalyptic 2018, John Connor
+        must lead the resistance of humans against the increasingly dominating militaristic
+        robots. But when Marcus Wright appears, his existence confuses the mission
+        as Connor tries to determine whether Wright has come from the future or the
+        past -- and whether he''s friend or foe.","popularity":120.904,"poster_path":"/gw6JhlekZgtKUFlDTezq3j5JEPK.jpg","production_companies":[{"id":5,"logo_path":"/71BqEFAF4V3qjjMPCpLuyJFB9A.png","name":"Columbia
+        Pictures","origin_country":"US"},{"id":4021,"logo_path":null,"name":"The Halcyon
+        Company","origin_country":""},{"id":4022,"logo_path":"/q6Xts6ztGkTHrY1WfHttlhL3Pfc.png","name":"Wonderland
+        Sound and Vision","origin_country":"US"},{"id":174,"logo_path":"/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png","name":"Warner
+        Bros. Pictures","origin_country":"US"}],"production_countries":[{"iso_3166_1":"DE","name":"Germany"},{"iso_3166_1":"IT","name":"Italy"},{"iso_3166_1":"GB","name":"United
+        Kingdom"},{"iso_3166_1":"US","name":"United States of America"}],"release_date":"2009-05-20","revenue":371353001,"runtime":115,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"}],"status":"Released","tagline":"The
+        End Begins.","title":"Terminator Salvation","video":false,"vote_average":6.0,"vote_count":5243}'
+  recorded_at: Fri, 04 Feb 2022 01:24:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/534?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 01:24:07 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 4c4119c0660281fd8efffca5a7b7226cf7f5085c
+      X-Memc-Age:
+      - '8811'
+      X-Memc-Expires:
+      - '6421'
+      Etag:
+      - W/"0d0dde573f2bddbf890b1a684393de68"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 bce4acc3004a5b5cf4c212614309e1b0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - LZ9pHhlEp2vMe4TX1p_eHV5rZp50Tt9gFWm5gACy5ExBMf9iHFNxYg==
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/aSXqVCYz3FYuDRjihoqQiXtAVa6.jpg","belongs_to_collection":{"id":528,"name":"The
+        Terminator Collection","poster_path":"/kpZxdNsAV7qTdTLwKM5NLqa7GEo.jpg","backdrop_path":"/cpmbkwSxZnKO69V82A9a34tvk2E.jpg"},"budget":200000000,"genres":[{"id":28,"name":"Action"},{"id":878,"name":"Science
+        Fiction"},{"id":53,"name":"Thriller"}],"homepage":"https://www.warnerbros.com/terminator-salvation","id":534,"imdb_id":"tt0438488","original_language":"en","original_title":"Terminator
+        Salvation","overview":"All grown up in post-apocalyptic 2018, John Connor
+        must lead the resistance of humans against the increasingly dominating militaristic
+        robots. But when Marcus Wright appears, his existence confuses the mission
+        as Connor tries to determine whether Wright has come from the future or the
+        past -- and whether he''s friend or foe.","popularity":120.904,"poster_path":"/gw6JhlekZgtKUFlDTezq3j5JEPK.jpg","production_companies":[{"id":5,"logo_path":"/71BqEFAF4V3qjjMPCpLuyJFB9A.png","name":"Columbia
+        Pictures","origin_country":"US"},{"id":4021,"logo_path":null,"name":"The Halcyon
+        Company","origin_country":""},{"id":4022,"logo_path":"/q6Xts6ztGkTHrY1WfHttlhL3Pfc.png","name":"Wonderland
+        Sound and Vision","origin_country":"US"},{"id":174,"logo_path":"/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png","name":"Warner
+        Bros. Pictures","origin_country":"US"}],"production_countries":[{"iso_3166_1":"DE","name":"Germany"},{"iso_3166_1":"IT","name":"Italy"},{"iso_3166_1":"GB","name":"United
+        Kingdom"},{"iso_3166_1":"US","name":"United States of America"}],"release_date":"2009-05-20","revenue":371353001,"runtime":115,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"}],"status":"Released","tagline":"The
+        End Begins.","title":"Terminator Salvation","video":false,"vote_average":6.0,"vote_count":5243}'
+  recorded_at: Fri, 04 Feb 2022 01:24:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/624860?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 01:24:07 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 8312016bf93f1e2b2b9412af28ac5718a3119176
+      X-Memc-Age:
+      - '1072'
+      X-Memc-Expires:
+      - '14127'
+      Etag:
+      - W/"e06fd596205a9aba6eb930873f1dc17f"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 ca38026a6de2ccb3904aed4709dff3d0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - YdrL_6867f8MjaVv5DvUtJtyZW-bSjMypHnDGnNG1MceTtwXZxqtFg==
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg","belongs_to_collection":{"id":2344,"name":"The
+        Matrix Collection","poster_path":"/bV9qTVHTVf0gkW0j7p7M0ILD4pG.jpg","backdrop_path":"/bRm2DEgUiYciDw3myHuYFInD7la.jpg"},"budget":190000000,"genres":[{"id":878,"name":"Science
+        Fiction"},{"id":28,"name":"Action"},{"id":12,"name":"Adventure"}],"homepage":"https://www.whatisthematrix.com","id":624860,"imdb_id":"tt10838180","original_language":"en","original_title":"The
+        Matrix Resurrections","overview":"Plagued by strange memories, Neo''s life
+        takes an unexpected turn when he finds himself back inside the Matrix.","popularity":1973.536,"poster_path":"/8c4a8kE7PizaGQQnditMmI1xbRp.jpg","production_companies":[{"id":174,"logo_path":"/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png","name":"Warner
+        Bros. Pictures","origin_country":"US"},{"id":79,"logo_path":"/tpFpsqbleCzEE2p5EgvUq6ozfCA.png","name":"Village
+        Roadshow Pictures","origin_country":"US"},{"id":84764,"logo_path":null,"name":"Venus
+        Castina Productions","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"2021-12-16","revenue":148000000,"runtime":148,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Return
+        to the source.","title":"The Matrix Resurrections","video":false,"vote_average":6.8,"vote_count":2718}'
+  recorded_at: Fri, 04 Feb 2022 01:24:08 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/624860?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Feb 2022 01:24:07 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 8312016bf93f1e2b2b9412af28ac5718a3119176
+      X-Memc-Age:
+      - '1072'
+      X-Memc-Expires:
+      - '14127'
+      Etag:
+      - W/"e06fd596205a9aba6eb930873f1dc17f"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 44933b72098305e9c31fc50b2e6554a0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - wheMghdOIK4i1QMYPBuIi_O9YotFBHzIqObSD-pNgeGx6iNOyCbcew==
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg","belongs_to_collection":{"id":2344,"name":"The
+        Matrix Collection","poster_path":"/bV9qTVHTVf0gkW0j7p7M0ILD4pG.jpg","backdrop_path":"/bRm2DEgUiYciDw3myHuYFInD7la.jpg"},"budget":190000000,"genres":[{"id":878,"name":"Science
+        Fiction"},{"id":28,"name":"Action"},{"id":12,"name":"Adventure"}],"homepage":"https://www.whatisthematrix.com","id":624860,"imdb_id":"tt10838180","original_language":"en","original_title":"The
+        Matrix Resurrections","overview":"Plagued by strange memories, Neo''s life
+        takes an unexpected turn when he finds himself back inside the Matrix.","popularity":1973.536,"poster_path":"/8c4a8kE7PizaGQQnditMmI1xbRp.jpg","production_companies":[{"id":174,"logo_path":"/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png","name":"Warner
+        Bros. Pictures","origin_country":"US"},{"id":79,"logo_path":"/tpFpsqbleCzEE2p5EgvUq6ozfCA.png","name":"Village
+        Roadshow Pictures","origin_country":"US"},{"id":84764,"logo_path":null,"name":"Venus
+        Castina Productions","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"2021-12-16","revenue":148000000,"runtime":148,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Return
+        to the source.","title":"The Matrix Resurrections","video":false,"vote_average":6.8,"vote_count":2718}'
+  recorded_at: Fri, 04 Feb 2022 01:24:08 GMT
+recorded_with: VCR 6.0.0

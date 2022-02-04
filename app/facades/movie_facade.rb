@@ -30,4 +30,10 @@ class MovieFacade
       TopRated.new(data)
     end
   end
+
+  def self.get_first_movie(query)
+    facade = MovieFacade.new
+    movie_id = facade.movie_results(query)[0].movie_id
+    movie = facade.movie_info(movie_id)
+  end
 end
