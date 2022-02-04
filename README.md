@@ -22,6 +22,7 @@ Tested using:
 ![faker](https://img.shields.io/gem/v/faker?label=faker&style=flat-square)
 ![faraday](https://img.shields.io/gem/v/faraday?label=faraday&style=flat-square)
 ![webmock](https://img.shields.io/gem/v/webmock?label=webmock&style=flat-square)
+![VCR](https://img.shields.io/gem/v/vcr?label=VCR&style=flat-square)
 
 ## Contributors 
 <table>
