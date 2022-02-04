@@ -109,8 +109,16 @@ RSpec.describe 'new viewing party page' do
     end
   end
 
-  it "has a submit button that redirects to the new party page if there is invalid data" do
+  it "redirects to the new party page if there is invalid data" do
+    VCR.use_cassette('bad_viewing_party_dune') do
+      movie = MovieFacade.get_first_movie('dune')
+      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
 
+            click_button 'Create Viewing Party'
+
+      expect(page).to eq(visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new")
+      expect(page).to have_cotnet("Error: please enter duration.")
+    end
   end
 
   it "doesn't allow parties of duration shorter than the movie duration" do
