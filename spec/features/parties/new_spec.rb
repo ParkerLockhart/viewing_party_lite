@@ -35,4 +35,25 @@ RSpec.describe 'new viewing party page' do
       expect(page).to have_field('Start Time', with: "06:30")
     end
   end
+
+  it "has checkboxes for each user in the system" do
+    user_1 = create(:user, name: 'Abby')
+    user_2 = create(:user, name: 'Bob')
+    user_3 = create(:user, name: 'Christy')
+    user_4 = create(:user, name: 'Dave')
+
+    VCR.use_cassette('new_viewing_party_dune') do
+      movie = MovieFacade.get_first_movie('dune')
+      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+
+
+      within 'div.users' do
+        expect(page).to have_content('Abby')
+        expect(page).to have_content('Bob')
+        expect(page).to have_content('Christy')
+        expect(page).to have_content('Dave')
+        expect(page).to_not have_content('Jeff')
+      end
+    end
+  end
 end
