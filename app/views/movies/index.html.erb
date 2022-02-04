@@ -2,12 +2,12 @@
 <h3><%= @heading %></h3>
 <button><%= link_to "Discover Page", "/users/#{@user.id}/discover" %></button><br>
 <table>
-  <tr>
     <% @movies.each do |movie| %>
       <div id="movie-id-<%= movie.movie_id %>">
-        <td><%= link_to "#{movie.title}", user_movie_path(@user.id, movie.movie_id) %></td>
-        <td>Vote average: <%= movie.vote_average %></td>
+        <tr>
+          <td><%= link_to "#{movie.title}", user_movie_path(@user.id, movie.movie_id) %></td>
+          <td>Vote average: <%= movie.vote_average %></td>
+        <tr>
       </div>
     <% end %>
-  </tr>
 </table>

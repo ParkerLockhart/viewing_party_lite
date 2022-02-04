@@ -124,10 +124,10 @@ RSpec.describe 'user movie results page' do
       VCR.use_cassette('dune_details') do
         VCR.use_cassette('dune_reviews') do
           visit search_url
-
+          save_and_open_page
           within("#movie-id-438631") do
             expect(page).to have_link("Dune")
-            click_link "Dune"
+            first(:link, "Dune").click
             expect(current_path).to eq(user_movie_path(user, 438631))
           end
         end
@@ -147,7 +147,7 @@ RSpec.describe 'user movie results page' do
               click_link "Your Eyes Tell"
               expect(current_path).to eq(user_movie_path(user, 730154))
             end
-          end 
+          end
         end
       end
     end
