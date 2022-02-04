@@ -30,6 +30,9 @@ RSpec.describe 'new viewing party page' do
 
       fill_in 'Date', with: "02/03/2022"
       fill_in 'Start Time', with: "06:30"
+
+      expect(page).to have_field('Date', with: "02/03/2022")
+      expect(page).to have_field('Start Time', with: "06:30")
     end
   end
 end
