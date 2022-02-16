@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       redirect_to user_path(user)
     else
       redirect_to "/register"
-      flash[:alert] = "Error: please enter a name and unique email to register."
+      flash[:alert] = "Error: check that email is not already in use, passwords match"
     end
   end
 
@@ -23,6 +23,6 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
