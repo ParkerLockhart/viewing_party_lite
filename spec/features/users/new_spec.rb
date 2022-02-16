@@ -18,6 +18,8 @@ RSpec.describe 'new user page' do
   it 'can create new user' do
     fill_in 'user[name]', with: "Megan"
     fill_in 'user[email]', with: "megan@email.com"
+    fill_in 'user[password]', with: "password123"
+    fill_in 'user[password_confirmation]', with: "password123"
     click_button("Create New User")
     user = User.last
 
@@ -25,10 +27,22 @@ RSpec.describe 'new user page' do
     expect(page).to have_content("#{user.name}'s Dashboard")
   end
 
-  it 'shows error if user not created' do
+  it 'will not create user if password confirmation fails' do
+    fill_in 'user[name]', with: "Megan"
+    fill_in 'user[email]', with: "megan@email.com"
+    fill_in 'user[password]', with: "password123"
+    fill_in 'user[password_confirmation]', with: "password124"
+    click_button("Create New User")
+    user = User.last
+
+    expect(current_path).to eq("/register")
+    expect(page).to have_content("Error: check that email is not already in use, passwords match")
+  end
+
+  it 'will not create user if fields missing' do
     click_button("Create New User")
 
     expect(current_path).to eq("/register")
-    expect(page).to have_content("Error: please enter a name and unique email to register.")
-  end 
+    expect(page).to have_content("Error: check that email is not already in use, passwords match")
+  end
 end
