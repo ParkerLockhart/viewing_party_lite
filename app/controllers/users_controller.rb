@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
 
     user = User.create(user_params)
-  
+
     if user.save
       redirect_to user_path(user)
     elsif (params[:user][:password] != params[:user][:password_confirmation])
@@ -23,6 +23,24 @@ class UsersController < ApplicationController
 
   def discover
     @user = User.find(params[:user_id])
+  end
+
+  def login_form
+  end
+
+  def login_user
+    if User.exists?(email: params[:email])
+      user = User.find_by email: params[:email]
+      if user.authenticate(params[:password])
+        redirect_to "/users/#{user.id}"
+      else
+        redirect_to "/login"
+        flash[:alert] = "Error: Unable to authenticate user. Please try again."
+      end
+    else
+      redirect_to "/login"
+      flash[:alert] = "Error: Unable to find user with that email. Please try again or register."
+    end
   end
 
 private
