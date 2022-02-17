@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'user movie results page' do
-  let!(:user) {User.create(name: "Jeff", email: "jeff@email.com")}
+  let!(:user) {create(:user, name: "Jeff")}
   let!(:top_rated_url) {"/users/#{user.id}/movies?q=top%20rated"}
   let!(:search_url) {"/users/#{user.id}/movies?q=dune"}
 
@@ -124,7 +124,7 @@ RSpec.describe 'user movie results page' do
       VCR.use_cassette('dune_details') do
         VCR.use_cassette('dune_reviews') do
           visit search_url
-  
+
           within("#movie-id-438631") do
             expect(page).to have_link("Dune")
             first(:link, "Dune").click

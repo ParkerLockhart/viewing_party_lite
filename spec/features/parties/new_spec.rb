@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'new viewing party page' do
-  let!(:user) {User.create(name: "Jeff", email: "jeff@email.com")}
+  let!(:user) {create(:user, name: "Jeff")}
 
   it "exists" do
     VCR.use_cassette('new_viewing_party_dune') do
