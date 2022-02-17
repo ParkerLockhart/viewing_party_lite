@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'landing page' do
-  let!(:user_1) {User.create(name: "Jeff", email: "jeff@email.com")}
-  let!(:user_2) {User.create(name: "Amy", email: "amy@email.com")}
+  let!(:user_1) {create(:user, name: "Jeff")}
+  let!(:user_2) {create(:user, name: "Amy")}
 
   before(:each) do
     visit root_path
@@ -28,5 +28,11 @@ RSpec.describe 'landing page' do
     expect(page).to have_link("Home")
     click_link "Home"
     expect(current_path).to eq(root_path)
+  end
+
+  it 'links to login page' do
+    expect(page).to have_link("Log In")
+    click_link "Log In"
+    expect(current_path).to eq('/login')
   end
 end
