@@ -1,0 +1,9 @@
+<h1>Viewing Party Existing User Login</h1>
+
+<%= form_with url: '/login', local: true do |f| %>
+  <%= f.label "Email:" %>
+  <%= f.text_field :email %><br>
+  <%= f.label "Password:" %>
+  <%= f.text_field :password %><br>
+  <%= f.submit "Log In" %>
+<% end %>
