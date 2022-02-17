@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'the user discover page' do
-  let!(:user) {User.create!(name: 'Bob', email: 'bob@email.com')}
+  let!(:user) {create(:user, name: 'Bob')}
 
 
   it "has a form to search by movie title that redirects you to a results page" do

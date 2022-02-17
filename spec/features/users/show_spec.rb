@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'user dashboard' do
-  let!(:user_1) {User.create(name: "Jeff", email: "jeff@email.com")}
-  let!(:user_2) {User.create(name: "Amy", email: "amy@email.com")}
+  let!(:user_1) {create(:user, name: "Jeff")}
+  let!(:user_2) {create(:user, name: "Amy")}
 
   it 'shows page title with user name' do
     visit user_path(user_1)
