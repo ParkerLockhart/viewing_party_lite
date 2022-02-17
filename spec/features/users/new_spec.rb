@@ -36,13 +36,27 @@ RSpec.describe 'new user page' do
     user = User.last
 
     expect(current_path).to eq("/register")
-    expect(page).to have_content("Error: check that email is not already in use, passwords match")
+    expect(page).to have_content("Error: Passwords don't match")
   end
 
-  it 'will not create user if fields missing' do
+  it 'will not create user without name and shows custom error' do
+
+    fill_in 'user[email]', with: "megan@email.com"
+    fill_in 'user[password]', with: "password123"
+    fill_in 'user[password_confirmation]', with: "password123"
     click_button("Create New User")
 
     expect(current_path).to eq("/register")
-    expect(page).to have_content("Error: check that email is not already in use, passwords match")
+    expect(page).to have_content("Error: Name can't be blank")
+  end
+
+  it 'will not create user without email and shows custom error' do
+    fill_in 'user[name]', with: "Megan"
+    fill_in 'user[password]', with: "password123"
+    fill_in 'user[password_confirmation]', with: "password123"
+    click_button("Create New User")
+
+    expect(current_path).to eq("/register")
+    expect(page).to have_content("Error: Email can't be blank")
   end
 end
