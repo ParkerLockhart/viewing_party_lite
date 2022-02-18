@@ -3,10 +3,17 @@ require 'rails_helper'
 RSpec.describe 'new viewing party page' do
   let!(:user) {create(:user, name: "Jeff")}
 
+  before(:each) do
+    visit '/login'
+    fill_in 'email', with: "jeff@email.com"
+    fill_in 'password', with: "password123"
+    click_button("Log In")
+  end
+
   it "exists" do
     VCR.use_cassette('new_viewing_party_dune') do
       movie = MovieFacade.get_first_movie('dune')
-      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+      visit "/movies/#{movie.id}/viewing-party/new"
 
       expect(page).to have_content("Dune")
     end
@@ -15,7 +22,7 @@ RSpec.describe 'new viewing party page' do
   it "has a form with a duration of party field that has a default value set to the movie length" do
     VCR.use_cassette('new_viewing_party_dune') do
       movie = MovieFacade.get_first_movie('dune')
-      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+      visit "/movies/#{movie.id}/viewing-party/new"
 
       expect(page).to have_field('Duration of Party', with: 155)
       fill_in 'Duration of Party', with: "300"
@@ -25,7 +32,7 @@ RSpec.describe 'new viewing party page' do
   it "has a form with a date and time field" do
     VCR.use_cassette('new_viewing_party_dune') do
       movie = MovieFacade.get_first_movie('dune')
-      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+      visit "/movies/#{movie.id}/viewing-party/new"
 
       fill_in 'Start Time', with: "02/03/2022 06:30"
       expect(page).to have_field('Start Time', with: "02/03/2022 06:30")
@@ -40,7 +47,7 @@ RSpec.describe 'new viewing party page' do
 
     VCR.use_cassette('new_viewing_party_dune') do
       movie = MovieFacade.get_first_movie('dune')
-      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+      visit "/movies/#{movie.id}/viewing-party/new"
 
       within 'div.viewers' do
         expect(page).to have_content('Abby')
@@ -60,7 +67,7 @@ RSpec.describe 'new viewing party page' do
 
     VCR.use_cassette('create_new_viewing_party_dune') do
       movie = MovieFacade.get_first_movie('dune')
-      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+      visit "/movies/#{movie.id}/viewing-party/new"
 
       fill_in 'Duration of Party', with: "300"
       fill_in 'Start Time', with: "02/03/2022 06:30"
@@ -100,33 +107,7 @@ RSpec.describe 'new viewing party page' do
       expect(party_user_4.user_id).to eq(user_4.id)
       expect(party_user_4.host).to eq(false)
 
-      expect(current_path).to eq("/users/#{user.id}")
-    end
-  end
-
-  xit "redirects to the new party page if there is invalid data" do
-    VCR.use_cassette('bad_viewing_party_dune_2') do
-      user_1 = create(:user, name: 'Abby')
-      user_2 = create(:user, name: 'Bob')
-      user_3 = create(:user, name: 'Christy')
-      user_4 = create(:user, name: 'Dave')
-
-      movie = MovieFacade.get_first_movie('dune')
-      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
-
-      fill_in 'Duration of Party', with: "100"
-      fill_in 'Start Time', with: "02/06/2026 06:30"
-
-      within 'div.viewers' do
-        check 'Abby'
-        check 'Bob'
-        check 'Dave'
-      end
-
-      click_button 'Create Viewing Party'
-
-      expect(page).to eq("/users/#{user.id}/movies/#{movie.id}/viewing-party/new")
-      expect(page).to have_content("Error: please enter a duration that is longer than the movie run time.")
+      expect(current_path).to eq("/dashboard")
     end
   end
 
@@ -138,7 +119,7 @@ RSpec.describe 'new viewing party page' do
       user_4 = create(:user, name: 'Dave')
 
       movie = MovieFacade.get_first_movie('dune')
-      visit "/users/#{user.id}/movies/#{movie.id}/viewing-party/new"
+      visit "/movies/#{movie.id}/viewing-party/new"
 
       fill_in 'Duration of Party', with: "100"
       fill_in 'Start Time', with: "02/06/2026 06:30"
@@ -151,8 +132,22 @@ RSpec.describe 'new viewing party page' do
 
       click_button 'Create Viewing Party'
 
-      expect(current_path).to eq("/users/#{user.id}/movies/#{movie.id}/viewing-party/new")
+      expect(current_path).to eq("/movies/#{movie.id}/viewing-party/new")
       expect(page).to have_content("Error: please enter a duration that is longer than the movie run time.")
     end
   end
+
+  it 'only allows access to logged in users' do
+    click_link "Log Out"
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Logout successful.")
+    VCR.use_cassette('new_viewing_party_dune') do
+      movie = MovieFacade.get_first_movie('dune')
+      visit "/movies/#{movie.id}/viewing-party/new"
+
+      expect(page).to have_content("You must be logged in to access this page.")
+      expect(current_path).to eq(root_path)
+    end
+  end
+
 end

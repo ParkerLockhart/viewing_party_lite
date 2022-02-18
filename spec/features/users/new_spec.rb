@@ -23,7 +23,7 @@ RSpec.describe 'new user page' do
     click_button("Create New User")
     user = User.last
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq("/dashboard")
     expect(page).to have_content("#{user.name}'s Dashboard")
   end
 

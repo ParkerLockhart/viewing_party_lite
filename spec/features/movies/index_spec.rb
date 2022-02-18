@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'user movie results page' do
-  let!(:user) {create(:user, name: "Jeff")}
-  let!(:top_rated_url) {"/users/#{user.id}/movies?q=top%20rated"}
-  let!(:search_url) {"/users/#{user.id}/movies?q=dune"}
+  let!(:top_rated_url) {"/movies?q=top%20rated"}
+  let!(:search_url) {"/movies?q=dune"}
 
   it 'shows app name when viewing top rated' do
     VCR.use_cassette('user_top_rated_movies') do
@@ -63,7 +62,7 @@ RSpec.describe 'user movie results page' do
 
       expect(page).to have_link("Discover Page")
       click_link "Discover Page"
-      expect(current_path).to eq("/users/#{user.id}/discover")
+      expect(current_path).to eq("/discover")
     end
   end
 
@@ -73,7 +72,7 @@ RSpec.describe 'user movie results page' do
 
       expect(page).to have_link("Discover Page")
       click_link "Discover Page"
-      expect(current_path).to eq("/users/#{user.id}/discover")
+      expect(current_path).to eq("/discover")
     end
   end
 
@@ -128,7 +127,7 @@ RSpec.describe 'user movie results page' do
           within("#movie-id-438631") do
             expect(page).to have_link("Dune")
             first(:link, "Dune").click
-            expect(current_path).to eq(user_movie_path(user, 438631))
+            expect(current_path).to eq(movie_path(438631))
           end
         end
       end
@@ -145,7 +144,7 @@ RSpec.describe 'user movie results page' do
             within("#movie-id-730154") do
               expect(page).to have_link("Your Eyes Tell")
               click_link "Your Eyes Tell"
-              expect(current_path).to eq(user_movie_path(user, 730154))
+              expect(current_path).to eq(movie_path(730154))
             end
           end
         end

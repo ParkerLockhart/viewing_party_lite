@@ -2,7 +2,7 @@
 
 <fieldset>
   <legend>Create Viewing Party</legend>
-  <%= form_with url: "/users/#{@user.id}/movies/#{@movie.id}/viewing-party/new", method: :post, local: true do |f| %>
+  <%= form_with url: "/movies/#{@movie.id}/viewing-party/new", method: :post, local: true do |f| %>
     <div class="date">
       <h3>Choose Date, Time, and Duration of Viewing Party</h3>
       <%= f.label :start_time, 'Start Time' %>

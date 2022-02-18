@@ -1,6 +1,6 @@
 <h3><%= @user.name %>'s Dashboard</h3>
 
-<%= button_to 'Discover Movies', "/users/#{@user.id}/discover", method: :get, local: true %>
+<%= button_to 'Discover Movies', "/discover", method: :get, local: true %>
 <hr>
 <div class="viewing_parties">
   <h4>Viewing Parties</h4>
@@ -8,7 +8,7 @@
     <div class=<%= "viewing_party_#{party.movie_id}" %>>
       <img src= <%= party.movie_poster %> alt="" style="width:25%;height:25%;">
 
-      <p><%= link_to "Title: #{party.movie_title}", "/users/#{@user.id}/movies/#{party.movie_id}" %></p>
+      <p><%= link_to "Title: #{party.movie_title}", "/movies/#{party.movie_id}" %></p>
       <p><%= "Date: #{party.movie_date}" %></p>
       <p><%= "Time: #{party.movie_time}" %></p>
 

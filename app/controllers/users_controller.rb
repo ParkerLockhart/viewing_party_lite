@@ -1,28 +1,28 @@
 class UsersController < ApplicationController
+  before_action :require_user, only: [:show]
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def new
   end
 
   def create
-
     user = User.create(user_params)
 
     if user.save
-      redirect_to user_path(user)
+      session[:user_id] = user.id
+      redirect_to '/dashboard'
     elsif (params[:user][:password] != params[:user][:password_confirmation])
-      redirect_to "/register"
-      flash[:alert] = "Error: Passwords don't match"
+      redirect_to '/register'
+      flash[:error] = "Error: Passwords don't match"
     else
-      redirect_to "/register"
-      flash[:alert] = "Error: #{error_message(user.errors)}"
+      redirect_to '/register'
+      flash[:error] = "Error: #{error_message(user.errors)}"
     end
   end
 
   def discover
-    @user = User.find(params[:user_id])
   end
 
   def login_form
@@ -32,7 +32,8 @@ class UsersController < ApplicationController
     if User.exists?(email: params[:email])
       user = User.find_by email: params[:email]
       if user.authenticate(params[:password])
-        redirect_to "/users/#{user.id}"
+        session[:user_id] = user.id
+        redirect_to "/dashboard"
       else
         redirect_to "/login"
         flash[:alert] = "Error: Unable to authenticate user. Please try again."

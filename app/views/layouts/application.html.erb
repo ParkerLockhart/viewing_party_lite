@@ -11,6 +11,13 @@
 
   <body>
     <%= link_to 'Home', root_path %>
+    <% if session[:user_id] %>
+      <%= link_to 'Log Out', '/logout' %>
+  <% else %>
+      <%= link_to 'Register New User', '/register' %>
+      <%= link_to 'Log In', '/login' %>
+  <% end %>
+
     <h1>Viewing Party</h1>
     <% flash.each do |type, msg| %>
       <div>

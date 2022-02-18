@@ -1,14 +1,7 @@
   <div>
-    <button><%= link_to 'Create New User', '/register' %></button>
-  </div>
-  <div>
-    <button><%= link_to 'Log In', '/login' %></button><br>
-  </div>
-
-  <div>
     Existing Users:<br>
     <% @users.each do |user| %>
-      <%= link_to "#{user.email}", "/users/#{user.id}" %><br>
+      <%= user.email %><br>
     <% end %>
 
   </div>
