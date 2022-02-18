@@ -4,18 +4,23 @@ RSpec.describe 'user dashboard' do
   let!(:user_1) {create(:user, name: "Jeff")}
   let!(:user_2) {create(:user, name: "Amy")}
 
+  before(:each) do
+    visit '/login'
+    fill_in 'email', with: "jeff@email.com"
+    fill_in 'password', with: "password123"
+    click_button("Log In")
+  end
+
   it 'shows page title with user name' do
-    visit user_path(user_1)
     expect(page).to have_content("Jeff's Dashboard")
   end
 
   it 'has a button to discover movies that redirects to a discover page associated with that user ' do
-    visit user_path(user_1)
     expect(page).to have_button("Discover Movies")
 
     click_button "Discover Movies"
 
-    expect(current_path).to eq("/users/#{user_1.id}/discover")
+    expect(current_path).to eq("/discover")
   end
 
   describe 'viewing party sections' do
@@ -25,8 +30,7 @@ RSpec.describe 'user dashboard' do
         movie = MovieFacade.get_first_movie('dune')
         party = create(:party, host: user_1, movie_id: movie.id)
 
-        visit user_path(user_1)
-
+        visit current_path
         expect(page).to have_css("img[src*='https://image.tmdb.org/t/p/original/d5NXSklXo0qyIYkgV94XAgMIckC.jpg']")
       end
     end
@@ -35,11 +39,9 @@ RSpec.describe 'user dashboard' do
       VCR.use_cassette('create_movie_from_search_dune3') do
         movie = MovieFacade.get_first_movie('dune')
         party = create(:party, host: user_1, movie_id: movie.id)
-
-        visit user_path(user_1)
-
+        visit current_path
         click_link "Title: Dune"
-        expect(current_path).to eq("/users/#{user_1.id}/movies/#{movie.id}")
+        expect(current_path).to eq("/movies/#{movie.id}")
       end
     end
 
@@ -47,9 +49,7 @@ RSpec.describe 'user dashboard' do
       VCR.use_cassette('create_movie_from_search_dune2') do
         movie = MovieFacade.get_first_movie('dune')
         party = create(:party, host: user_1, movie_id: movie.id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
-
-        visit user_path(user_1)
-
+        visit current_path
         expect(page).to have_content("Date: Feb 2, 2022")
         expect(page).to have_content("Time: 6:10 PM")
       end
@@ -59,9 +59,7 @@ RSpec.describe 'user dashboard' do
       VCR.use_cassette('create_movie_from_search_dune2') do
         movie = MovieFacade.get_first_movie('dune')
         party = create(:party_with_viewers, host: user_1, viewer_count: 4, movie_id: movie.id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
-
-        visit user_path(user_1)
-
+        visit current_path
         expect(page).to have_content("Hosting")
       end
     end
@@ -74,9 +72,7 @@ RSpec.describe 'user dashboard' do
         viewer_3 = create(:user, name: 'Charlie')
         viewers = [viewer_1, viewer_2, viewer_3]
         party = create(:party_with_viewers, host: user_1, viewers: viewers, movie_id: movie.id, start_time: DateTime.new(2022, 02, 02, 18, 10, 0))
-
-        visit user_path(user_1)
-
+        visit current_path
         within "div.movie_#{movie.id}_viewers" do
           expect(page).to have_content("Abby")
           expect(page).to have_content("Bob")
@@ -100,8 +96,7 @@ RSpec.describe 'user dashboard' do
             party_1 = create(:party_with_viewers, host: user_1, viewer_count: 4, movie_id: movie_1.id, start_time: DateTime.new(2022, 02, 02, 12, 10, 0))
             party_2 = create(:party_with_viewers, host: user_2, viewers: [user_1, user_3, user_4], movie_id: movie_2.id, start_time: DateTime.new(2022, 02, 02, 14, 00, 0))
             party_3 = create(:party_with_viewers, host: user_3, viewers: [user_1, user_4], movie_id: movie_3.id, start_time: DateTime.new(2022, 02, 02, 18, 30, 0))
-
-            visit user_path(user_1)
+            visit current_path
 
             within "div.viewing_party_#{movie_1.id}" do
               expect(page).to have_content("Hosting")
