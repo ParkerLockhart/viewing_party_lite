@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  enum role: [ :default, :manager, :admin ]
+
   def host_parties
     parties.where(party_users: { host: true })
   end
