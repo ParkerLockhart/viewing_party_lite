@@ -11,7 +11,7 @@ RSpec.describe 'user login form page' do
     fill_in 'password', with: "password123"
     click_button("Log In")
 
-    expect(current_path).to eq(user_path(@user))
+    expect(current_path).to eq("/dashboard")
     expect(page).to have_content("#{@user.name}'s Dashboard")
   end
 
@@ -31,5 +31,5 @@ RSpec.describe 'user login form page' do
 
     expect(current_path).to eq("/login")
     expect(page).to have_content("Error: Unable to find user with that email. Please try again or register.")
-  end 
+  end
 end
